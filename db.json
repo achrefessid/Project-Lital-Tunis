@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nom": "Achref",
+      "type": "Tunis",
+      "collection": 26,
+      "marque": "08574195842312"
+    },
+    {
+      "id": 2,
+      "nom": "Salim",
+      "type": "Tunis",
+      "collection": 27,
+      "marque": "08574195842312"
+    }
+  ]
+}
