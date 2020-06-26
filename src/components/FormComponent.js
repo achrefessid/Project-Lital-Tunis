@@ -37,22 +37,22 @@ const renderField = ({
 const mapStateToProps = (state) => {
   return {
     initialValues : {
-      nom : state.users.getUserDetail.nom,
-      marque : state.users.getUserDetail.marque,
-      type : state.users.getUserDetail.type,
-      collection : state.users.getUserDetail.collection,
-      marque : state.users.getUserDetail.marque,
-      reference : state.users.getUserDetail.reference,
-      phase : state.users.getUserDetail.phase,
+      annee : state.users.getUserDetail.annee,
+      saison : state.users.getUserDetail.saison,
+      createur : state.users.getUserDetail.createur,
+      gamme : state.users.getUserDetail.gamme,
+      sex : state.users.getUserDetail.sex,
+      modele : state.users.getUserDetail.modele,
+      name : state.users.getUserDetail.name,
       mesure : state.users.getUserDetail.mesure,
-      couleur : state.users.getUserDetail.couleur,
-      quantite : state.users.getUserDetail.quantite,
+      photo : state.users.getUserDetail.photo,
       commentaire : state.users.getUserDetail.commentaire,
     }
   };
 };
 
 class FormComponent extends Component {
+
   render() {
     return (
       <form onSubmit={this.props.handleSubmit}>
@@ -61,9 +61,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="nom"
+                name="annee"
                 component={renderField}
-                label="Nom :"
+                label="Année :"
               />
             </FormGroup>
           </Col>
@@ -72,9 +72,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="type"
+                name="saison"
                 component={renderField}
-                label="Type :"
+                label="Saison :"
               />
             </FormGroup>
           </Col>
@@ -83,9 +83,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="collection"
+                name="createur"
                 component={renderField}
-                label="Collection :"
+                label="Createur :"
               />
             </FormGroup>
           </Col>
@@ -94,9 +94,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="marque"
+                name="gamme"
                 component={renderField}
-                label="Marque :"
+                label="Gamme :"
               />
             </FormGroup>
           </Col>
@@ -105,9 +105,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="reference"
+                name="sex"
                 component={renderField}
-                label="reference :"
+                label="Sex :"
               />
             </FormGroup>
           </Col>
@@ -116,9 +116,20 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="phase"
+                name="modele"
                 component={renderField}
-                label="phase :"
+                label="Modéle :"
+              />
+            </FormGroup>
+          </Col>
+
+          <Col md={6}>
+            <FormGroup>
+              <Field
+                type="text"
+                name="name"
+                component={renderField}
+                label="Name :"
               />
             </FormGroup>
             </Col>
@@ -129,7 +140,7 @@ class FormComponent extends Component {
                 type="text"
                 name="mesure"
                 component={renderField}
-                label="mesure :"
+                label="Mesure :"
               />
             </FormGroup>
           </Col>
@@ -138,20 +149,9 @@ class FormComponent extends Component {
             <FormGroup>
               <Field
                 type="text"
-                name="couleur"
+                name="photo"
                 component={renderField}
-                label="couleur :"
-              />
-            </FormGroup>
-          </Col>
-
-          <Col md={6}>
-            <FormGroup>
-              <Field
-                type="text"
-                name="quantite"
-                component={renderField}
-                label="quantite :"
+                label="Photo :"
               />
             </FormGroup>
           </Col>
@@ -162,23 +162,12 @@ class FormComponent extends Component {
                 type="text"
                 name="commentaire"
                 component={renderField}
-                label="commentaire :"
+                label="Commentaire :"
               />
             </FormGroup>
           </Col>
-          
-
+        
         </FormGroup>
-
-
-
-
-
-        
-
-        
-
-        
 
         <FormGroup row>
           <Col md="12">

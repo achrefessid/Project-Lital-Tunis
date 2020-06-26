@@ -3,7 +3,7 @@ import {
   GET_USER_DETAIL,
   POST_USER_CREATE,
   PUT_USER_EDIT,
-} from "../actions/userAction";
+} from "../actions/productAction";
 
 let initialState = {
   getUsersList: false,
@@ -12,7 +12,9 @@ let initialState = {
   errorUserDetail: false,
   getResponDataUser: false,
   errorResponDataUser: false,
-  title: "Nos Produits",
+  title: "Produits",
+  titlehistorique: "Historique",
+  user: "Gestion d'ulisateur"
 };
 
 const users = (state = initialState, action) => {

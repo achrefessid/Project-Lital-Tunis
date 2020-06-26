@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import BackComponent from "../components/BackComponent";
 import { connect } from "react-redux";
-import { getUserDetail } from "../actions/userAction";
+import { getUserDetail } from "../actions/productAction";
 import DetailUserComponent from "../components/DetailUserComponent";
 
 class DetailUserContainer extends Component {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import {addHistory} from "./historicAction"
 export const GET_USERS_LIST = "GET_USERS_LIST";
 export const GET_USER_DETAIL = "GET_USER_DETAIL";
 export const POST_USER_CREATE = "POST_USER_CREATE";
@@ -37,6 +38,7 @@ export const getUserDetail = (id) => {
           id
       )
       .then(function (response) {
+
         dispatch({
           type: GET_USER_DETAIL,
           payload: {
@@ -57,7 +59,11 @@ export const getUserDetail = (id) => {
   };
 };
 
-export const postUserCreate = (data) => {
+
+export const postUserCreate = (data, row) => {
+  console.log("create action");
+  console.log("create data",data);
+  
   return (dispatch) => {
     axios
       .post(
@@ -65,6 +71,15 @@ export const postUserCreate = (data) => {
         data
       )
       .then(function (response) {
+                //historic
+                let y={
+                  date: new Date(),
+                  operation: "création de produit",
+                  name: data.name,
+                  modele: data.modele
+                };
+                dispatch(addHistory(y));
+                //historic
         console.log(response);
         
         dispatch({
@@ -95,6 +110,15 @@ export const putUserUpdate = (data, id) => {
         data
       )
       .then(function (response) {
+                //historic
+                let y={
+                  date: new Date(),
+                  operation: "produit actualisé",
+                  name: data.name,
+                  modele: data.modele
+                };
+                dispatch(addHistory(y));
+                //historic
         console.log(response);
         
         dispatch({
@@ -118,15 +142,27 @@ export const putUserUpdate = (data, id) => {
 };
 
 
-export const deleteUser = (id) => {
+export const deleteUser = (row) => {
+  console.log("delete user action");
+  
   return (dispatch) => {
     axios
       .delete(
-         "http://localhost:3000/users/"+id
+         "http://localhost:3000/users/"+row.id
       )
-      .then(function (response) {
+      .then(response =>{
         console.log(response);
+        //historic
+        let y={
+          date: new Date(),
+          operation: "Suppression de produit",
+          name: row.name,
+          modele: row.modele
+        };
+        console.log("y",y);
         
+        dispatch(addHistory(y));
+        //historic
       })
       .catch(function (error) {
         console.log(error);
@@ -156,3 +192,5 @@ export const deleteDataUser = () => {
     });
   };
 };
+
+

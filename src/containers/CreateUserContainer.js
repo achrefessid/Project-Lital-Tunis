@@ -3,8 +3,9 @@ import { Container } from "reactstrap";
 import BackComponent from "../components/BackComponent";
 import FormComponent from "../components/FormComponent";
 import { connect } from "react-redux";
-import { postUserCreate } from "../actions/userAction";
 import swal from "sweetalert";
+import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
+
 
 const mapStateToProps = (state) => {
   return {
@@ -15,7 +16,7 @@ const mapStateToProps = (state) => {
 
 class CreateUserContainer extends Component {
   handleSubmit(data) {
-    this.props.dispatch(postUserCreate(data));
+    this.props.postUserCreate(data);
   }
 
   render() {
@@ -30,10 +31,10 @@ class CreateUserContainer extends Component {
       }else {
         swal(
             "User Created!",
-            "Nom : " +
-              this.props.getResponDataUser.nom +
-              " , Collection : " +
-              this.props.getResponDataUser.collection,
+            "Année : " +
+              this.props.getResponDataUser.annee +
+              " , Saison : " +
+              this.props.getResponDataUser.saison,
             "success"
           );
       }
@@ -48,4 +49,9 @@ class CreateUserContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, null)(CreateUserContainer);
+export default connect(mapStateToProps, {
+  postUserCreate,
+  putUserUpdate,
+  deleteUser
+})(CreateUserContainer); 
+

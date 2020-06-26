@@ -24,17 +24,25 @@ const NavbarComponent = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
+
               <NavItem>
-                <NavLink href="/components/">Home</NavLink>
+                <NavLink to="">Home</NavLink>
               </NavItem>
+
               <NavItem>
-                <NavLink href="/">
-                  Nos Products
-                </NavLink>
+                <NavLink href="/user">Gestion d'utilisateur</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href="/product">Produits</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href="/historic">Historique</NavLink>
               </NavItem>
              
             </Nav>
-            <NavbarText>Admin</NavbarText>
+            <NavLink href="/dec">Déconnexion</NavLink>
           </Collapse>
         </Container>
       </Navbar>

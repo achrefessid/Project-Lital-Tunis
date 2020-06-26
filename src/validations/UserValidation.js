@@ -1,44 +1,44 @@
 const UserValidation = (values) => {
   const errors = {};
 
-  if (!values.nom || values.nom === "") {
-    errors.nom = "The nom must be filled in";
+  if (!values.annee || values.annee === "") {
+    errors.annee = "L'annee doit être remplie";
   }
 
-  if (!values.type || values.type === "") {
-    errors.type = "Type must be filled";
+  if (!values.saison || values.saison === "") {
+    errors.saison = "Le type doit être remplie";
   }
 
-  if (!values.collection || values.collection === "") {
-    errors.collection = "Colection must be filled";
+  if (!values.createur || values.createur === "") {
+    errors.createur = "createur doit être remplie";
   }
 
-  if (!values.marque || values.marque === "") {
-    errors.marque = "Marque must be filled";
+  if (!values.gamme || values.gamme === "") {
+    errors.gamme = "gamme doit être remplie";
   }
 
-  if (!values.reference || values.reference === "") {
-    errors.reference = "Marque must be filled";
+  if (!values.sex || values.sex === "") {
+    errors.sex = "sex doit être remplie";
   }
 
-  if (!values.phase || values.phase === "") {
-    errors.phase = "Marque must be filled";
+  if (!values.modele || values.modele === "") {
+    errors.modele = "marque doit être remplie";
+  }
+
+  if (!values.name || values.name === "") {
+    errors.anme = "marque doit être remplie";
   }
 
   if (!values.mesure || values.mesure === "") {
-    errors.mesure = "Marque must be filled";
+    errors.mesure = "mesure doit être remplie";
   }
 
-  if (!values.couleur || values.couleur === "") {
-    errors.couleur = "Type must be filled";
-  }
-
-  if (!values.quantite || values.quantite === "") {
-    errors.quantite = "Type must be filled";
+  if (!values.photo || values.photo === "") {
+    errors.photo = "photo doit être remplie";
   }
 
   if (!values.commentaire || values.commentaire === "") {
-    errors.commentaire = "Type must be filled";
+    errors.commentaire = "commentaire doit être remplie";
   }
 
   return errors

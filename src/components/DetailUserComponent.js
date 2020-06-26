@@ -14,34 +14,39 @@ const DetailUserComponent = (props) => {
     <Table striped>
       <tbody>
         <tr>
-          <td width="200">Nom</td>
+          <td width="200">Anneé</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.nom}</td>
+          <td>{props.getUserDetail.annee}</td>
         </tr>
         <tr>
-          <td width="200">Type</td>
+          <td width="200">Saison</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.type}</td>
+          <td>{props.getUserDetail.saison}</td>
         </tr>
         <tr>
-          <td width="200">Collection</td>
+          <td width="200">Createur</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.collection}</td>
+          <td>{props.getUserDetail.createur}</td>
         </tr>
         <tr>
-          <td width="200">Marque</td>
+          <td width="200">Gamme</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.marque}</td>
+          <td>{props.getUserDetail.gamme}</td>
         </tr>
         <tr>
-          <td width="200">Reférednce</td>
+          <td width="200">Sex</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.reference}</td>
+          <td>{props.getUserDetail.sex}</td>
         </tr>
         <tr>
-          <td width="200">Phase</td>
+          <td width="200">Modéle</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.phase}</td>
+          <td>{props.getUserDetail.modele}</td>
+        </tr>
+        <tr>
+          <td width="200">Name</td>
+          <td width="10">:</td>
+          <td>{props.getUserDetail.name}</td>
         </tr>
         <tr>
           <td width="200">Mesure</td>
@@ -49,14 +54,9 @@ const DetailUserComponent = (props) => {
           <td>{props.getUserDetail.mesure}</td>
         </tr>
         <tr>
-          <td width="200">Couleur</td>
+          <td width="200">Photo</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.couleur}</td>
-        </tr>
-        <tr>
-          <td width="200">Quantité</td>
-          <td width="10">:</td>
-          <td>{props.getUserDetail.quantite}</td>
+          <td>{props.getUserDetail.photo}</td>
         </tr>
         <tr>
           <td width="200">Commentaire</td>

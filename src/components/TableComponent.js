@@ -8,11 +8,32 @@ import paginationFactory from "react-bootstrap-table2-paginator";          //mta
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from 'sweetalert';
-import { deleteUser } from "../actions/userAction";
+import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
 
+/*-mta3 search */
 const { SearchBar } = Search;
 
-const handleClick = (dispatch, id) => {
+
+
+/*-il id wil action walafihom i5tot, ki tinzil a3lihom ama ya3tik mi lowil li li5ér 
+wala mi li5ér li lowél------------------------------------------------------------*/
+const defaultSorted = [         
+  {
+    dataField: "id",
+    order: "asc",
+  },
+];
+/*--------------------------------------------------------------------------------*/
+const mapStateToProps = (state) => {
+  return {
+    getUsersList: state.users.getUsersList,
+    errorUsersList: state.users.errorUsersList,
+  };
+};
+/*-Tableau------------------------------------------------------------------------*/
+const TableComponent = (props) => {
+
+const handleClick = (dispatch, row) => {
   
   swal({
     title: "Are you sure you want to delete this data ?",
@@ -22,7 +43,7 @@ const handleClick = (dispatch, id) => {
   })
   .then((willDelete) => {
     if (willDelete) {
-      dispatch(deleteUser(id))
+      props.deleteUser(row)
       swal("User Data Successfully deleted", {
         icon: "success",
       });
@@ -32,61 +53,74 @@ const handleClick = (dispatch, id) => {
   });
 }
 
-const defaultSorted = [         
-  {
-    dataField: "id",
-    order: "asc",
-  },
-];
 
-const mapStateToProps = (state) => {
-  return {
-    getUsersList: state.users.getUsersList,
-    errorUsersList: state.users.errorUsersList,
-  };
-};
 
-const TableComponent = (props) => {
   const columns = [
     {
       dataField: "id",
       text: "ID",
-      sort: true,                
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér       
       headerStyle: () => {
         return { width: "5%" };
       },
     },
     {
-      dataField: "nom",
-      text: "Nom",
-      sort: true,                 
+      dataField: "annee",
+      text: "Année",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér            
     },
     {
-      dataField: "type",
-      text: "Type",
-      sort: true,                
+      dataField: "saison",
+      text: "Saison",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+    },
+    {
+      dataField: "createur",
+      text: "Createur",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+    },
+    {
+      dataField: "gamme",
+      text: "Gamme",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+    },
+    {
+      dataField: "sex",
+      text: "Sex",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+    },
+    {
+      dataField: "modele",
+      text: "Modéle",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+    },
+    {
+      dataField: "name",
+      text: "Name",
+      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
     },
     {
       dataField: "link",
       text: "Action",
-
+/*-btn:details-edit-delete---------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
             <Link to={"detail/" + row.id}>
-              <Button color="dark" className="mr-2">
+              <Button color="red" className="mr-2">
                 <FontAwesomeIcon icon={faInfo} /> Détail
               </Button>
             </Link>
   
             <Link to={"edit/" + row.id}>
-              <Button color="dark" className="mr-2">
+              <Button color="dark" className="mr-2"> 
                 <FontAwesomeIcon icon={faEdit} /> Editer
               </Button>
             </Link>
   
-            <Button color="dark" className="mr-2" onClick={() => handleClick(props.dispatch, row.id)}>
-              <FontAwesomeIcon icon={faTrash} /> Supprimer
+            <Button color="red" className="mr-2" 
+            onClick={() => handleClick(props.dispatch, row)}>
+              <FontAwesomeIcon icon={faTrash} /> delete
             </Button>
           </div>
         );
@@ -117,7 +151,8 @@ const TableComponent = (props) => {
                     </Button>
                   </Link>
                 </Col>
-
+                
+              {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
                     <SearchBar {...props.searchProps} placeholder="Search .." />
@@ -126,11 +161,13 @@ const TableComponent = (props) => {
               </Row>
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()}
+                pagination={paginationFactory()} //mta3 123 ili tbadil
               />
             </div>
           )}
           </ToolkitProvider>
+          /*-search---------------------- */
+
                 ) : (
         <div className="text-center">
           {props.errorUsersList ? (
@@ -144,4 +181,8 @@ const TableComponent = (props) => {
   );
 };
 
-export default connect(mapStateToProps, null)(TableComponent);
+export default connect(mapStateToProps, {
+  postUserCreate,
+  putUserUpdate,
+  deleteUser
+})(TableComponent);

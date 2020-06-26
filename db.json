@@ -1,18 +1,133 @@
 {
   "users": [
     {
-      "id": 1,
-      "nom": "Achref",
-      "type": "Tunis",
-      "collection": 26,
-      "marque": "08574195842312"
+      "annee": "2050",
+      "saison": "SS18",
+      "createur": "Lital",
+      "gamme": "Buidness",
+      "sex": "Unisexe",
+      "modele": "Agenda",
+      "name": "Mansour",
+      "mesure": "22*16*2.2",
+      "photo": "....",
+      "commentaire": "....",
+      "id": 1
     },
     {
-      "id": 2,
-      "nom": "Salim",
-      "type": "Tunis",
-      "collection": 27,
-      "marque": "08574195842312"
+      "annee": "2018",
+      "saison": "SS18",
+      "gamme": "Lital",
+      "sex": "Unisexe",
+      "modele": "Bloc Note",
+      "name": "Bassem",
+      "mesure": "20.5*12*2",
+      "photo": "....",
+      "commentaire": "....",
+      "createur": "Lital",
+      "id": 2
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 4
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 5
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 6
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 7
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 8
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 9
+    },
+    {
+      "annee": "2019",
+      "saison": "SS19",
+      "createur": "LItal",
+      "gamme": "Femme",
+      "sex": "Femme",
+      "modele": "Boucle",
+      "name": "Nahel",
+      "mesure": "9*6.5",
+      "photo": "",
+      "commentaire": "......",
+      "id": 10
+    }
+  ],
+  "user": [
+    {
+      "userName": "Merys",
+      "userMail": "Meriam@co.co",
+      "passWord": "clo159753",
+      "firstName": "Meriame",
+      "lastName": "Melle",
+      "userPhone": "25522525",
+      "userPost": "Administrateur",
+      "id": 1
     }
   ]
 }

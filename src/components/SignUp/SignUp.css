@@ -1,0 +1,52 @@
+/*body{
+    text-align: center;
+    font-family: fantasy;
+    background-image: url(https://scontent.ftun10-1.fna.fbcdn.net/v/t31.0-8/20988326_348233775617171_6906513916099152814_o.jpg?_nc_cat=101&_nc_sid=e3f864&_nc_ohc=OJ7NXYffV3IAX8MvqMf&_nc_ht=scontent.ftun10-1.fna&oh=4e20eb22600915bd898881098b2f61d0&oe=5F0E14C7);
+  }*/
+  
+  .Sin {
+    background-position: center;
+    padding-top: 2%;
+    padding-bottom: 4%;
+  }
+  
+  .Siin {
+    width: 420px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  .Siin input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: fantasy;
+  }
+  
+  .Siin button {
+    background-color: hsl(276, 91%, 48%);
+    border: 1px solid hsl(286, 46%, 32%);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: medium;
+    color: rgb(19, 17, 17);
+    padding: 14px 20px;
+    margin: 4% 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .Siin button:hover {
+    background-color: white;
+    color: hsl(0, 0%, 0%);
+    border: 1px solid hsl(0, 0%, 87%);
+  }
+  

@@ -1,0 +1,40 @@
+.Sin {
+  font-family: fantasy;
+  background-image: url(https://scontent.ftun10-1.fna.fbcdn.net/v/t31.0-8/20988326_348233775617171_6906513916099152814_o.jpg?_nc_cat=101&_nc_sid=e3f864&_nc_ohc=OJ7NXYffV3IAX8MvqMf&_nc_ht=scontent.ftun10-1.fna&oh=4e20eb22600915bd898881098b2f61d0&oe=5F0E14C7);
+}
+
+.Sin h1{
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: 8%;
+}
+
+.tab{
+    font-family: fantasy !important;
+    margin: 5%;
+}
+
+.ui button{
+    font-family: fantasy !important;
+    background-color: blue !important;
+    color: blanchedalmond !important;
+}
+
+.ui button:hover{
+    background-color: rgb(207, 202, 202) !important;
+    color: rgb(156, 9, 120) !important;
+}
+
+.modaledit span{
+    font-family: fantasy !important;
+    margin-left: 28%;
+    font-size: medium;
+}
+
+.modaledit input{
+    font-family: fantasy !important;
+    margin-left: 28%;
+    font-size: medium;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
