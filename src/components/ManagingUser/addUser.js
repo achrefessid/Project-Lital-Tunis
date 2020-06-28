@@ -42,10 +42,10 @@ const SingIn = ({ addPerson }) => {
             value={passWord}
             onChange={(e) => setUserPass(e.target.value)}
           />
-          <span>Pseudo</span>
+          <span>username</span>
           <input
             type="text"
-            placeholder="Entrer le pseudo d'utilisateur"
+            placeholder="Entrer le username"
             required
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
@@ -68,7 +68,7 @@ const SingIn = ({ addPerson }) => {
             onChange={(e) => setUserPhone(e.target.value)}
           />
           <span>Type d'utilisateur</span>
-          
+
           <input
             type="text"
             placeholder="Role d'utilisateur"
@@ -76,7 +76,7 @@ const SingIn = ({ addPerson }) => {
             value={userPost}
             onChange={(e) => setUserPost("Administrateur")}
           />
-          
+
           <button
             onClick={() =>
               addPerson({

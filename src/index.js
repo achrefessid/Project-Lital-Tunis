@@ -5,13 +5,13 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./reducers";
+import Xreducer from "./reducers/index";
 import thunk from "redux-thunk";
 import "semantic-ui-css/semantic.min.css";
 
-const store = createStore(reducer, compose(applyMiddleware(thunk)));
+const store = createStore(Xreducer,applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,15 +1,15 @@
-import { combineReducers } from 'redux'
-import users from './users'
-import { reducer as formReducer } from 'redux-form'
-import historicReducer from './historicReducer'
-import userReducer from './userReducer'
-import currentUser from "./currentUser"
+import { combineReducers } from 'redux';
+import users from './users';
+//import { reducer as formReducer } from 'redux-form';
+import historicReducer from './historicReducer';
+import userReducer from './userReducer';
+import currentUser from './currentUser';
 
-export default combineReducers({
+const Xreducer = combineReducers({
     users,
-    currentUser,
-    form: formReducer,
     historicReducer,
+    currentUser,
     userReducer
-
+    //form: formReducer,
 })
+export default Xreducer;

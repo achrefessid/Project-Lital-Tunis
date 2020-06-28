@@ -1,29 +1,16 @@
 {
   "users": [
     {
-      "annee": "2050",
-      "saison": "SS18",
-      "createur": "Lital",
-      "gamme": "Buidness",
-      "sex": "Unisexe",
-      "modele": "Agenda",
-      "name": "Mansour",
-      "mesure": "22*16*2.2",
-      "photo": "....",
-      "commentaire": "....",
-      "id": 1
-    },
-    {
       "annee": "2018",
       "saison": "SS18",
+      "createur": "Lital",
       "gamme": "Lital",
       "sex": "Unisexe",
       "modele": "Bloc Note",
-      "name": "Bassem",
+      "name": "Bassem hamrawi",
       "mesure": "20.5*12*2",
       "photo": "....",
       "commentaire": "....",
-      "createur": "Lital",
       "id": 2
     },
     {
@@ -128,6 +115,26 @@
       "userPhone": "25522525",
       "userPost": "Administrateur",
       "id": 1
+    },
+    {
+      "userName": "soltan",
+      "userMail": "kmkhalilo@gmail.com",
+      "passWord": "12345678",
+      "firstName": "khemeri",
+      "lastName": "mohamed khalil",
+      "userPhone": "27145229",
+      "userPost": "Administrateur",
+      "id": 2
+    },
+    {
+      "userName": "malak",
+      "userMail": "malak@gmail.com",
+      "passWord": "12345678",
+      "firstName": "malak",
+      "lastName": "somrani",
+      "userPhone": "123654989",
+      "userPost": "Opérateur",
+      "id": 3
     }
   ]
 }

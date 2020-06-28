@@ -10,6 +10,9 @@ import {
   NavbarText,
   Container,
 } from "reactstrap";
+import { connect } from 'react-redux'
+import { logoutUser } from '../actions/currentUserAction'
+
 
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +43,10 @@ const NavbarComponent = (props) => {
               <NavItem>
                 <NavLink href="/historic">Historique</NavLink>
               </NavItem>
-             
+
             </Nav>
-            <NavLink href="/dec">Déconnexion</NavLink>
+            <NavLink to="/dec" onClick={() => { logoutUser() }}>Déconnexion</NavLink>
+            <button  onClick={() => { logoutUser() }}>logout</button>
           </Collapse>
         </Container>
       </Navbar>
@@ -50,4 +54,11 @@ const NavbarComponent = (props) => {
   );
 };
 
-export default NavbarComponent;
+
+export default connect(
+  (state => {
+    return {
+      user: state.currentUser
+    }
+  }), { logoutUser })
+  (NavbarComponent);
