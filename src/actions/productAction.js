@@ -8,7 +8,7 @@ export const PUT_USER_EDIT = "PUT_USER_EDIT";
 export const getUsersList = () => {
   return (dispatch) => {
     axios
-      .get("http://localhost:3000/users/")
+      .get("http://localhost:3001/users/")
       .then(function (response) {
         dispatch({
           type: GET_USERS_LIST,
@@ -34,7 +34,7 @@ export const getUserDetail = (id) => {
   return (dispatch) => {
     axios
       .get(
-        "http://localhost:3000/users/" +
+        "http://localhost:3001/users/" +
           id
       )
       .then(function (response) {
@@ -67,7 +67,7 @@ export const postUserCreate = (data, row) => {
   return (dispatch) => {
     axios
       .post(
-         "http://localhost:3000/users/",
+         "http://localhost:3001/users/",
         data
       )
       .then(function (response) {
@@ -106,7 +106,7 @@ export const putUserUpdate = (data, id) => {
   return (dispatch) => {
     axios
       .put(
-         "http://localhost:3000/users/"+id,
+         "http://localhost:3001/users/"+id,
         data
       )
       .then(function (response) {
@@ -148,7 +148,7 @@ export const deleteUser = (row) => {
   return (dispatch) => {
     axios
       .delete(
-         "http://localhost:3000/users/"+row.id
+         "http://localhost:3001/users/"+row.id
       )
       .then(response =>{
         console.log(response);
