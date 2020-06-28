@@ -54,7 +54,6 @@ class App extends Component {
                     <Route exact path="/" component={ProductContainer} />
                     <Route exact path="/product" component={ProductContainer} />
                     <Route exact path="/historic" component={HistoricContainer} />
-                    <Route exact path="/signin" component={SingIn} />
                     <Route exact path="/dec" component={Dex} />
 
                     <Route exact path="/create" component={CreateUserContainer} />

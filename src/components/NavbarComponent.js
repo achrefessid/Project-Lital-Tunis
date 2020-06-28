@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import { NavLink as soltanLink } from "react-router-dom";
 import { connect } from 'react-redux'
+import { Button as Btn, Icon } from 'semantic-ui-react'
 import { logoutUser } from '../actions/currentUserAction'
 
 
@@ -24,13 +25,13 @@ const NavbarComponent = (props) => {
     <div>
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand><NavLink tag={soltanLink} exact  to="/"><img src="https://i1.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo_lital_0.png?fit=328%2C111" width="120" /> </NavLink></NavbarBrand>
+          <NavbarBrand><NavLink tag={soltanLink} exact to="/"><img src="https://i1.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo_lital_0.png?fit=328%2C111" width="120" /> </NavLink></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
 
               <NavItem>
-                <NavLink tag={soltanLink} exact  to="/">Home</NavLink>
+                <NavLink tag={soltanLink} exact to="/">Home</NavLink>
               </NavItem>
 
               <NavItem>
@@ -46,8 +47,15 @@ const NavbarComponent = (props) => {
               </NavItem>
 
             </Nav>
-            <NavLink tag={soltanLink} to="/dec"><button onClick={() => { props.logoutUser() }}>Déconnecter</button></NavLink>
-
+            {props.user ?
+              props.user !== "none" ?
+              <NavLink tag={soltanLink} to="/dec">
+                <Btn onClick={() => { props.logoutUser() }} icon labelPosition='right'>
+              <Icon name="sign-out" />
+              Déconnecter</Btn>
+              </NavLink>
+              : null : null
+              }
           </Collapse>
         </Container>
       </Navbar>

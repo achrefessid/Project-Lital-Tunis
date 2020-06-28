@@ -24,19 +24,6 @@
       "mesure": "9*6.5",
       "photo": "",
       "commentaire": "......",
-      "id": 4
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
       "id": 5
     },
     {
@@ -125,6 +112,16 @@
       "userPhone": "27145229",
       "userPost": "Administrateur",
       "id": 2
+    },
+    {
+      "userName": "sweety",
+      "userMail": "katy@gmail.com",
+      "passWord": "12345678",
+      "firstName": "katy",
+      "lastName": "perry",
+      "userPhone": "12345678",
+      "userPost": "Opérateur",
+      "id": 3
     }
   ]
 }
