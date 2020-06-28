@@ -17,7 +17,7 @@ class VueUser extends Component {
   render() {
     return (
       <div className="tab">
-        <NavLink to="/signin">
+        <NavLink exact to="/signin">
         <Dropdown
           text="Ajouter un utilisateur"
           icon="add user"

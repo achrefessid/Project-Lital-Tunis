@@ -24,29 +24,29 @@ const NavbarComponent = (props) => {
     <div>
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand><img src="https://i1.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo_lital_0.png?fit=328%2C111" width="120" /> </NavbarBrand>
+          <NavbarBrand><NavLink tag={soltanLink} exact  to="/"><img src="https://i1.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo_lital_0.png?fit=328%2C111" width="120" /> </NavLink></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
 
               <NavItem>
-                <NavLink><soltanLink to="/">Home</soltanLink></NavLink>
+                <NavLink tag={soltanLink} exact  to="/">Home</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink><soltanLink to="/user">Gestion d'utilisateur</soltanLink></NavLink>
+                <NavLink tag={soltanLink} to="/user">Gestion d'utilisateur</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink><soltanLink to="/product">Produits</soltanLink></NavLink>
+                <NavLink tag={soltanLink} to="/product">Produits</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink><soltanLink to="/historic">Historique</soltanLink></NavLink>
+                <NavLink tag={soltanLink} to="/historic">Historique</NavLink>
               </NavItem>
 
             </Nav>
-            <NavLink><soltanLink to="/dec"><button onClick={() => { props.logoutUser() }}>Déconnecter</button></soltanLink></NavLink>
+            <NavLink tag={soltanLink} to="/dec"><button onClick={() => { props.logoutUser() }}>Déconnecter</button></NavLink>
 
           </Collapse>
         </Container>
