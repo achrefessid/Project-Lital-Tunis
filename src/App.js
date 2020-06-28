@@ -16,9 +16,6 @@ import { connect } from 'react-redux'
 
 
 class App extends Component {
-  componentDidMount() {
-    console.log("this.props.user", this.props.user)
-  };
   render() {
     return (
       <div>
@@ -29,6 +26,7 @@ class App extends Component {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/" component={SignUp} />
+                <Route exact path="/dec" component={Dex} />
                 <Redirect to="/" />
               </Switch>
             </BrowserRouter>
@@ -55,7 +53,6 @@ class App extends Component {
                   <Route exact path="/" component={ProductContainer} />
                   <Route exact path="/product" component={ProductContainer} />
                   <Route exact path="/historic" component={HistoricContainer} />
-                  <Route exact path="/user" component={UserContainer} />
                   <Route exact path="/signin" component={SingIn} />
                   <Route exact path="/dec" component={Dex} />
 

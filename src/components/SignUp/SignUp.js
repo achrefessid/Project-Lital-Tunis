@@ -4,14 +4,13 @@ import { getUsersFromApi } from "../../actions/userActions"
 import { loginUser } from "../../actions/currentUserAction"
 import './SignUp.css';
 
-export class SignUp extends Component {
+class SignUp extends Component {
   verif() {
-    console.log(this.state)
     const x = this.props.users.filter((el) => ((el.userName === this.state.userName) && (el.passWord === this.state.passWord)));
 
     if (x.length === 0) { alert("Données invalides") }
     else {
-      loginUser(x[0].userPost)
+      this.props.loginUser(x[0].userPost)
     }
   }
   //{window.location.pathname = "/home";}
@@ -52,7 +51,8 @@ export default connect(  (state => {
   return {
     users: state.userReducer
   }
-}), {
+}),
+ {
   getAlluser : getUsersFromApi,
   loginUser
 })(SignUp);

@@ -10,6 +10,7 @@ import {
   NavbarText,
   Container,
 } from "reactstrap";
+import { NavLink as soltanLink } from "react-router-dom";
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/currentUserAction'
 
@@ -29,24 +30,24 @@ const NavbarComponent = (props) => {
             <Nav className="mr-auto" navbar>
 
               <NavItem>
-                <NavLink to="">Home</NavLink>
+                <NavLink><soltanLink to="/">Home</soltanLink></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href="/user">Gestion d'utilisateur</NavLink>
+                <NavLink><soltanLink to="/user">Gestion d'utilisateur</soltanLink></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href="/product">Produits</NavLink>
+                <NavLink><soltanLink to="/product">Produits</soltanLink></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink href="/historic">Historique</NavLink>
+                <NavLink><soltanLink to="/historic">Historique</soltanLink></NavLink>
               </NavItem>
 
             </Nav>
-            <NavLink to="/dec" onClick={() => { logoutUser() }}>Déconnexion</NavLink>
-            <button  onClick={() => { logoutUser() }}>logout</button>
+            <NavLink><soltanLink to="/dec"><button onClick={() => { props.logoutUser() }}>Déconnecter</button></soltanLink></NavLink>
+
           </Collapse>
         </Container>
       </Navbar>

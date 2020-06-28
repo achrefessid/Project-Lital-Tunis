@@ -125,16 +125,6 @@
       "userPhone": "27145229",
       "userPost": "Administrateur",
       "id": 2
-    },
-    {
-      "userName": "malak",
-      "userMail": "malak@gmail.com",
-      "passWord": "12345678",
-      "firstName": "malak",
-      "lastName": "somrani",
-      "userPhone": "123654989",
-      "userPost": "Opérateur",
-      "id": 3
     }
   ]
 }

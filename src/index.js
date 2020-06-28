@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import Xreducer from "./reducers/index";
+import Xreducer from "./reducers/main";
 import thunk from "redux-thunk";
 import "semantic-ui-css/semantic.min.css";
 

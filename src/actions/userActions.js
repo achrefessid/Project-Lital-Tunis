@@ -66,6 +66,6 @@ export function editeUserFromApi(el) {
   return (dispatch) =>
     Axios.patch("http://localhost:3001/user/" + el.id, el).then(
       (res) => dispatch(editeUser(el)),
-      window.location.reload()
+      //window.location.reload()
     );
 }

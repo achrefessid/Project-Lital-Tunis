@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
+import currentUser from './currentUser';
 import users from './users';
 //import { reducer as formReducer } from 'redux-form';
 import historicReducer from './historicReducer';
 import userReducer from './userReducer';
-import currentUser from './currentUser';
+
 
 const Xreducer = combineReducers({
+    currentUser,
     users,
     historicReducer,
-    currentUser,
     userReducer
     //form: formReducer,
 })

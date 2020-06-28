@@ -3,13 +3,16 @@ import * as types from '../types';
 /***********************login user action package*********************************** */
 
 export const loginUser = (userPost) => {
+    console.log("action");
     const action = {
         type: types.LOGIN_USER,
         userPost,
     }
-    console.log("action loginUser called : ", action);
     return action;
 }
+
+
+
 
 /***********************logout user action package*********************************** */
 
@@ -18,6 +21,5 @@ export const logoutUser = () => {
         type: types.LOGOUT_USER,
         userPost: "none"
     }
-    console.log("action LOGOUT_USER called : ", action);
     return action;
 }
