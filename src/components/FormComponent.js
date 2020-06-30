@@ -1,3 +1,5 @@
+//ajouter produits
+//edit produits
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
@@ -57,6 +59,18 @@ class FormComponent extends Component {
     return (
       <form onSubmit={this.props.handleSubmit}>
         <FormGroup row>
+
+        <Col md={6}>
+            <FormGroup>
+              <Field
+                type="text"
+                name="photo"
+                component={renderField}
+                label="Photo :"
+              />
+            </FormGroup>
+          </Col>
+          
           <Col md={6}>
             <FormGroup>
               <Field
@@ -141,17 +155,6 @@ class FormComponent extends Component {
                 name="mesure"
                 component={renderField}
                 label="Mesure :"
-              />
-            </FormGroup>
-          </Col>
-
-            <Col md={6}>
-            <FormGroup>
-              <Field
-                type="text"
-                name="photo"
-                component={renderField}
-                label="Photo :"
               />
             </FormGroup>
           </Col>

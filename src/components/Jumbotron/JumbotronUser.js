@@ -21,7 +21,7 @@ const JumbotronComponent = (props) => {
           <hr className="my-2" />
 
           <p>
-            .
+            Cette page nous permet d'ajouter / modifier / supprimer un utilisateur.
           </p>
 
           <p className="lead">

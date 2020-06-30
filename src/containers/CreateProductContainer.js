@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import BackComponent from "../components/BackComponent";
+import BackComponentProduct from "../components/BackComponentProduct";
 import FormComponent from "../components/FormComponent";
 import { connect } from "react-redux";
 import swal from "sweetalert";
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-class CreateUserContainer extends Component {
+class CreateProductContainer extends Component {
   handleSubmit(data) {
     this.props.postUserCreate(data);
   }
@@ -24,24 +24,24 @@ class CreateUserContainer extends Component {
       if(this.props.errorResponDataUser)
       {
         swal(
-            "Failed!",
+            "Échoué!",
             this.props.errorResponDataUser,
-            "error"
+            "Erreur"
           );
       }else {
         swal(
-            "User Created!",
+            "Produit créé!",
             "Année : " +
               this.props.getResponDataUser.annee +
               " , Saison : " +
               this.props.getResponDataUser.saison,
-            "success"
+            "Succès"
           );
       }
     }
     return (
       <Container>
-        <BackComponent />
+        <BackComponentProduct />
         <h1>Ajouter Produits</h1>
         <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
       </Container>
@@ -53,5 +53,5 @@ export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
   deleteUser
-})(CreateUserContainer); 
+})(CreateProductContainer); 
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postUser } from "../../actions/userActions";
 import "./managingUser.css";
+import BackComponentUser from "./BackComponentUser"
 
 const SingIn = ({ addPerson }) => {
   const [firstName, setFirstName] = useState("");
@@ -13,6 +14,8 @@ const SingIn = ({ addPerson }) => {
   const [userPost, setUserPost] = useState("Opérateur");
 
   return (
+    <>
+    <BackComponentUser />
     <div className="Sin">
       <div className="Siin">
         <h1>Ajouter un utilisateur</h1>
@@ -95,6 +98,7 @@ const SingIn = ({ addPerson }) => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

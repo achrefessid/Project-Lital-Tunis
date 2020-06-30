@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const BackComponent = () => {
+const BackComponentProduct = () => {
   return (
     <Row className="mb-2">
       <Col>
@@ -18,4 +18,4 @@ const BackComponent = () => {
   );
 };
 
-export default BackComponent;
+export default BackComponentProduct;

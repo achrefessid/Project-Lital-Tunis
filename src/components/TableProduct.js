@@ -13,8 +13,6 @@ import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAct
 /*-mta3 search */
 const { SearchBar } = Search;
 
-
-
 /*-il id wil action walafihom i5tot, ki tinzil a3lihom ama ya3tik mi lowil li li5ér 
 wala mi li5ér li lowél------------------------------------------------------------*/
 const defaultSorted = [         
@@ -23,37 +21,28 @@ const defaultSorted = [
     order: "asc",
   },
 ];
-/*--------------------------------------------------------------------------------*/
-const mapStateToProps = (state) => {
-  return {
-    getUsersList: state.users.getUsersList,
-    errorUsersList: state.users.errorUsersList,
-  };
-};
+
 /*-Tableau------------------------------------------------------------------------*/
-const TableComponent = (props) => {
+const TableProduct = (props) => {
 
 const handleClick = (dispatch, row) => {
-  
   swal({
-    title: "Are you sure you want to delete this data ?",
-    icon: "warning",
+    title: "Voulez-vous vraiment supprimer ces données?",
+    icon: "avertissement",
     buttons: true,
     dangerMode: true,
   })
   .then((willDelete) => {
     if (willDelete) {
       props.deleteUser(row)
-      swal("User Data Successfully deleted", {
+      swal("Données du produit supprimées avec succès", {
         icon: "success",
       });
     } else {
-      swal("Data failed to delete");
+      swal("Impossible de supprimer les données");
     }
   });
 }
-
-
 
   const columns = [
     {
@@ -67,47 +56,79 @@ const handleClick = (dispatch, row) => {
     {
       dataField: "annee",
       text: "Année",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér            
+      sort: true,                 
+      headerStyle: () => {
+        return { width: "10%" };
+      },        
     },
     {
       dataField: "saison",
       text: "Saison",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,                
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
     },
     {
       dataField: "createur",
       text: "Createur",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,             
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
     },
     {
       dataField: "gamme",
       text: "Gamme",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,              
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
     },
     {
       dataField: "sex",
       text: "Sex",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,               
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
     },
     {
       dataField: "modele",
       text: "Modéle",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,              
+      headerStyle: () => {
+        return { width: "10%" };
+      },   
     },
     {
       dataField: "name",
       text: "Name",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,                
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
+    },
+    {
+      dataField: "mesure",
+      text: "Mesure",
+      sort: true,               
+      headerStyle: () => {
+        return { width: "10%" };
+      }, 
     },
     {
       dataField: "link",
       text: "Action",
+      headerStyle: () => {
+        return { width: "31%" };
+      }, 
 /*-btn:details-edit-delete---------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
             <Link to={"detail/" + row.id}>
-              <Button color="red" className="mr-2">
+              <Button color="dark" className="mr-2">
                 <FontAwesomeIcon icon={faInfo} /> Détail
               </Button>
             </Link>
@@ -118,9 +139,9 @@ const handleClick = (dispatch, row) => {
               </Button>
             </Link>
   
-            <Button color="red" className="mr-2" 
+            <Button color="dark" className="mr-2" 
             onClick={() => handleClick(props.dispatch, row)}>
-              <FontAwesomeIcon icon={faTrash} /> delete
+              <FontAwesomeIcon icon={faTrash} /> supprimer
             </Button>
           </div>
         );
@@ -138,7 +159,7 @@ const handleClick = (dispatch, row) => {
           columns={columns}
           defaultSorted={defaultSorted}
           search
-        >
+          >
       
           {(props) => (
             <div>
@@ -167,7 +188,6 @@ const handleClick = (dispatch, row) => {
           )}
           </ToolkitProvider>
           /*-search---------------------- */
-
                 ) : (
         <div className="text-center">
           {props.errorUsersList ? (
@@ -181,8 +201,15 @@ const handleClick = (dispatch, row) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    getUsersList: state.users.getUsersList,
+    errorUsersList: state.users.errorUsersList,
+  };
+};
+
 export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
   deleteUser
-})(TableComponent);
+})(TableProduct);

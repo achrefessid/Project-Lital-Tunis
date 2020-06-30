@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import BackComponent from "../components/BackComponent";
+import BackComponentProduct from "../components/BackComponentProduct";
 import { connect } from "react-redux";
 import { getUserDetail } from "../actions/productAction";
-import DetailUserComponent from "../components/DetailUserComponent";
+import DetailProductComponent from "../components/DetailProductComponent";
 
-class DetailUserContainer extends Component {
+class DetailProductContainer extends Component {
   componentDidMount() {
     this.props.dispatch(getUserDetail(this.props.match.params.id));
   }
@@ -13,12 +13,12 @@ class DetailUserContainer extends Component {
   render() {
     return (
       <Container>
-        <BackComponent />
+        <BackComponentProduct />
         <h1>Détail de Produit</h1>
-        <DetailUserComponent />
+        <DetailProductComponent />
       </Container>
     );
   }
 }
 
-export default connect()(DetailUserContainer);
+export default connect()(DetailProductContainer);

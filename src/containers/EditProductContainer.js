@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import BackComponent from "../components/BackComponent";
+import BackComponentProduct from "../components/BackComponentProduct";
 import { connect } from "react-redux";
 import FormComponent from "../components/FormComponent";
 import swal from "sweetalert";
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-class EditUserContainer extends Component {
+class EditProductContainer extends Component {
   componentDidMount() {
     this.props.getUserDetail(this.props.match.params.id);
   }
@@ -42,7 +42,7 @@ class EditUserContainer extends Component {
     }
     return (
       <Container>
-        <BackComponent />
+        <BackComponentProduct />
         <h1>Modifier le produit</h1>
         <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
       </Container>
@@ -55,4 +55,4 @@ export default connect(mapStateToProps, {
   putUserUpdate,
   deleteUser,
   getUserDetail
-})(EditUserContainer);
+})(EditProductContainer);

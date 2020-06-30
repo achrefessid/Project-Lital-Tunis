@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TableComponent from "../components/TableComponent";
+import TableProduct from "../components/TableProduct";
 import { connect } from "react-redux";
 import { getUsersList, deleteDataUser } from '../actions/productAction'
 import JumbotronProduct from "../components/Jumbotron/JumbotronProduct";
@@ -14,7 +14,7 @@ class ProductContainer extends Component {
     return (
       <div>
         <JumbotronProduct />   
-        <TableComponent />
+        <TableProduct />
       </div>
     );
   }

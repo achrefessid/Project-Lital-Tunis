@@ -26,7 +26,7 @@ const NavbarComponent = (props) => {
             <Nav className="mr-auto" navbar>
 
               <NavItem>
-                <NavLink to="">Home</NavLink>
+                <NavLink href="/signup">Home</NavLink>
               </NavItem>
 
               <NavItem>

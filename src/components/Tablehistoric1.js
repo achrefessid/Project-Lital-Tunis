@@ -12,8 +12,6 @@ import swal from 'sweetalert';
 import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
 import {getHistory} from "../actions/historicAction";
 
-const { SearchBar } = Search;
-
 const defaultSorted = [         
   {
     dataField: "id",
@@ -25,7 +23,8 @@ const TableHistoric = (props) => {
     useEffect(()=>
     {props.getHistory()}
     ,[]);
-    
+
+
     const columns = [{
         dataField: 'id',
         text: 'ID',
@@ -36,58 +35,43 @@ const TableHistoric = (props) => {
       }, {
         dataField: 'name',
         text: 'Name',
+        filter: textFilter()
       }, {
         dataField: 'operation',
         text: 'Operation',
+        filter: textFilter()
       }, {
         dataField: 'modele',
         text: 'Modéle',
+        filter: textFilter({
+          onFilter: filterVal => console.log(`Filter Value: ${filterVal}`)
+        })
       }, {
       dataField: 'date',
       text: 'Date',
+      filter: dateFilter()
       }
+    
+    
     ];
-      return (
-        <Container>
-          {props.historic ? (
-            <ToolkitProvider
-              bootstrap4
-              keyField="id"
-              data={props.historic}
-              columns={columns}
-              defaultSorted={defaultSorted}
-              search
-              >
-              {(props) => (
-                <div>
-                  <Row>
-                  {/*-search-------------------*/}
-                    <Col>
-                      <div className="float-right">
-                        <SearchBar {...props.searchProps} placeholder="Search .." />
-                      </div>
-                    </Col>
-                  </Row>
-                  <BootstrapTable
-                    {...props.baseProps}
-                    pagination={paginationFactory()} //mta3 123 ili tbadil
-                  />
-                </div>
-              )}
-              </ToolkitProvider>
-              /*-search---------------------- */
-                    ) : (
-            <div className="text-center">
-              {props.errorUsersList ? (
-                <h4>{props.errorUsersList}</h4>
-              ) : (
-                <Spinner color="dark" />
-              )}
-            </div>
-          )}
-        </Container>
-      );
-    };
+      
+      function afterFilter(newResult, newFilters) {
+        console.log(newResult);
+        console.log(newFilters);
+      }
+    
+return (
+  <Container>
+    {props.historic.map(e=>e.operation)}
+    <BootstrapTable
+        bootstrap4
+        keyField='id' 
+        data={ props.historic } 
+        columns={ columns } 
+        filter={ filterFactory({ afterFilter }) } />
+</Container>
+)
+};
 /*--------------------------------------------------------------------------------*/
 const mapStateToProps = (state) => {
     return {

@@ -9,10 +9,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const DetailUserComponent = (props) => {
+const DetailProductComponent = (props) => {
   return (
     <Table striped>
       <tbody>
+      <tr>
+          <td width="200">Photo</td>
+          <td width="10">:</td>
+          <td>{props.getUserDetail.photo}</td>
+        </tr>
         <tr>
           <td width="200">Anneé</td>
           <td width="10">:</td>
@@ -54,11 +59,6 @@ const DetailUserComponent = (props) => {
           <td>{props.getUserDetail.mesure}</td>
         </tr>
         <tr>
-          <td width="200">Photo</td>
-          <td width="10">:</td>
-          <td>{props.getUserDetail.photo}</td>
-        </tr>
-        <tr>
           <td width="200">Commentaire</td>
           <td width="10">:</td>
           <td>{props.getUserDetail.commentaire}</td>
@@ -68,4 +68,4 @@ const DetailUserComponent = (props) => {
   );
 };
 
-export default connect(mapStateToProps, null)(DetailUserComponent);
+export default connect(mapStateToProps, null)(DetailProductComponent);

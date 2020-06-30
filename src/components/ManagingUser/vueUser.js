@@ -32,6 +32,8 @@ class VueUser extends Component {
             <Table.Row>
               <Table.HeaderCell>Pseudo</Table.HeaderCell>
               <Table.HeaderCell>Mot de passe</Table.HeaderCell>
+
+              
               <Table.HeaderCell className="edit">Editer</Table.HeaderCell>
               <Table.HeaderCell>Supprimer</Table.HeaderCell>
             </Table.Row>
