@@ -1,23 +1,32 @@
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
+
+import { Button as Btn ,Icon } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfo, faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";  //serach
-import paginationFactory from "react-bootstrap-table2-paginator";          //mta3 tabdil page 123
+import {
+  faInfo,
+  faEdit,
+  faTrash,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"; //serach
+import paginationFactory from "react-bootstrap-table2-paginator"; //mta3 tabdil page 123
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import swal from 'sweetalert';
-import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
+import swal from "sweetalert";
+import {
+  deleteUser,
+  postUserCreate,
+  putUserUpdate,
+} from "../actions/productAction";
 
 /*-mta3 search */
 const { SearchBar } = Search;
 
-
-
 /*-il id wil action walafihom i5tot, ki tinzil a3lihom ama ya3tik mi lowil li li5ér 
 wala mi li5ér li lowél------------------------------------------------------------*/
-const defaultSorted = [         
+const defaultSorted = [
   {
     dataField: "id",
     order: "asc",
@@ -32,34 +41,29 @@ const mapStateToProps = (state) => {
 };
 /*-Tableau------------------------------------------------------------------------*/
 const TableComponent = (props) => {
-
-const handleClick = (dispatch, row) => {
-  
-  swal({
-    title: "Are you sure you want to delete this data ?",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      props.deleteUser(row)
-      swal("User Data Successfully deleted", {
-        icon: "success",
-      });
-    } else {
-      swal("Data failed to delete");
-    }
-  });
-}
-
-
+  const handleClick = (dispatch, row) => {
+    swal({
+      title: "Êtes vous sûre de vouloir supprimer ce produit ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        props.deleteUser(row);
+        swal("Produit supprimé", {
+          icon: "success",
+        });
+      } else {
+        swal("Suppression annulée");
+      }
+    });
+  };
 
   const columns = [
     {
       dataField: "id",
       text: "ID",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér       
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
       headerStyle: () => {
         return { width: "5%" };
       },
@@ -67,42 +71,42 @@ const handleClick = (dispatch, row) => {
     {
       dataField: "annee",
       text: "Année",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér            
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "saison",
       text: "Saison",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "createur",
       text: "Createur",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "gamme",
       text: "Gamme",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "sex",
       text: "Sex",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "modele",
       text: "Modéle",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "name",
       text: "Name",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
     },
     {
       dataField: "link",
       text: "Action",
-/*-btn:details-edit-delete---------------------------------------------------------*/
+      /*-btn:details-edit-delete---------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
@@ -111,15 +115,18 @@ const handleClick = (dispatch, row) => {
                 <FontAwesomeIcon icon={faInfo} /> Détail
               </Button>
             </Link>
-  
+
             <Link to={"edit/" + row.id}>
-              <Button color="dark" className="mr-2"> 
+              <Button color="dark" className="mr-2">
                 <FontAwesomeIcon icon={faEdit} /> Editer
               </Button>
             </Link>
-  
-            <Button color="red" className="mr-2" 
-            onClick={() => handleClick(props.dispatch, row)}>
+
+            <Button
+              color="red"
+              className="mr-2"
+              onClick={() => handleClick(props.dispatch, row)}
+            >
               <FontAwesomeIcon icon={faTrash} /> delete
             </Button>
           </div>
@@ -139,20 +146,19 @@ const handleClick = (dispatch, row) => {
           defaultSorted={defaultSorted}
           search
         >
-      
           {(props) => (
             <div>
-
               <Row>
                 <Col>
                   <Link to="/create">
-                    <Button color="dark" className="mr-2">
-                      <FontAwesomeIcon icon={faUserPlus} /> Ajouter un produit
-                    </Button>
+                    <Btn icon labelPosition="left">
+                      <Icon name="add product" />
+                      Ajouter un produit
+                    </Btn>
                   </Link>
                 </Col>
-                
-              {/*-search-------------------*/}
+
+                {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
                     <SearchBar {...props.searchProps} placeholder="Search .." />
@@ -165,10 +171,10 @@ const handleClick = (dispatch, row) => {
               />
             </div>
           )}
-          </ToolkitProvider>
-          /*-search---------------------- */
+        </ToolkitProvider>
+      ) : (
+        /*-search---------------------- */
 
-                ) : (
         <div className="text-center">
           {props.errorUsersList ? (
             <h4>{props.errorUsersList}</h4>
@@ -184,5 +190,5 @@ const handleClick = (dispatch, row) => {
 export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
-  deleteUser
+  deleteUser,
 })(TableComponent);

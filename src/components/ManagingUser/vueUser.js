@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Button as Btn ,Icon, Label, Menu, Table, Dropdown } from "semantic-ui-react";
+import {
+  Button as Btn,
+  Icon,
+  Label,
+  Menu,
+  Table,
+  Dropdown,
+} from "semantic-ui-react";
 import { Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -17,9 +24,12 @@ class VueUser extends Component {
   render() {
     return (
       <div className="tab">
-        <NavLink exact to="/signin"><Btn icon labelPosition='left'>
-          <Icon name="add user" />
-          Ajouter un utilisateur</Btn></NavLink>
+        <NavLink exact to="/signin">
+          <Btn icon labelPosition="left">
+            <Icon name="add user" />
+            Ajouter un utilisateur
+          </Btn>
+        </NavLink>
         {/* <NavLink exact to="/signin">
           <Dropdown
             text="Ajouter un utilisateur"
@@ -66,19 +76,7 @@ class VueUser extends Component {
           </Table.Body>
 
           <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron left" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron right" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
+            
           </Table.Footer>
         </Table>
       </div>

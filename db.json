@@ -24,58 +24,6 @@
       "mesure": "9*6.5",
       "photo": "",
       "commentaire": "......",
-      "id": 5
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
-      "id": 6
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
-      "id": 7
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
-      "id": 8
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
       "id": 9
     },
     {
@@ -114,12 +62,12 @@
       "id": 2
     },
     {
-      "userName": "sweety",
-      "userMail": "katy@gmail.com",
-      "passWord": "12345678",
-      "firstName": "katy",
-      "lastName": "perry",
-      "userPhone": "12345678",
+      "userName": "med",
+      "userMail": "salim@co.co",
+      "passWord": "clo147741",
+      "firstName": "salim",
+      "lastName": "amri",
+      "userPhone": "55240245",
       "userPost": "Opérateur",
       "id": 3
     }

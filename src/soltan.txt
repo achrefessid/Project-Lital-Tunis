@@ -4,4 +4,6 @@ sudo npm install -g json-server
 to run dbjson server :
 json-server --watch db.json --port 3001
 
+Clonning from specific branch :
+git clone -b my-branch git@github.com:user/myproject.git
 

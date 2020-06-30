@@ -25,7 +25,6 @@ const JumbotronComponent = (props) => {
           </p>
 
           <p className="lead">
-          <Button color="dark"><FontAwesomeIcon icon={faInfo}/> Learn More</Button>
           </p>
         </Container>
       </Jumbotron>

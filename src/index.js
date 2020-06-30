@@ -10,8 +10,12 @@ import { Provider } from "react-redux";
 import Xreducer from "./reducers/main";
 import thunk from "redux-thunk";
 import "semantic-ui-css/semantic.min.css";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(Xreducer,applyMiddleware(thunk));
+const store = createStore(
+  Xreducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>

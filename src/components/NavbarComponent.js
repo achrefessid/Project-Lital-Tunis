@@ -30,12 +30,9 @@ const NavbarComponent = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
 
-              <NavItem>
-                <NavLink tag={soltanLink} exact to="/">Home</NavLink>
-              </NavItem>
 
               <NavItem>
-                <NavLink tag={soltanLink} to="/user">Gestion d'utilisateur</NavLink>
+                <NavLink tag={soltanLink} to="/user">Utilisateur</NavLink>
               </NavItem>
 
               <NavItem>

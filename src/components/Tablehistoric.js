@@ -49,8 +49,7 @@ const TableHistoric = (props) => {
 return (
 
 
-<div> 
-    {props.historic.map(e=>e.operation)}
+<div className="historica"> 
 <BootstrapTable keyField='id' data={ props.historic } columns={ columns } filter={ filterFactory({ afterFilter }) } />
 
 </div>

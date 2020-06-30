@@ -8,8 +8,8 @@ export class dec extends Component {
     return (
       <div>
         <div className="Sin">
-          <div className="Siin">
-            <h1>À BIENTÔT ...
+          <div className="Siiin">
+            <h1 className="bientot">À BIENTÔT ...
             </h1>
           </div>
         </div>
