@@ -105,7 +105,7 @@
       "id": 9
     },
     {
-      "annee": "2019",
+      "annee": "2025",
       "saison": "SS19",
       "createur": "LItal",
       "gamme": "Femme",
@@ -113,7 +113,7 @@
       "modele": "Boucle",
       "name": "Nahel",
       "mesure": "9*6.5",
-      "photo": "",
+      "photo": "...",
       "commentaire": "......",
       "id": 10
     },
@@ -250,14 +250,14 @@
   ],
   "user": [
     {
-      "userName": "achref essid",
-      "userMail": "achref.essid@hotmail.fr",
-      "passWord": "00000000",
-      "firstName": "achref",
-      "lastName": "essid",
-      "userPhone": "56865301",
+      "userName": "salim",
+      "userMail": "salim@gmail.com",
+      "passWord": "0000",
+      "firstName": "salim",
+      "lastName": "salim 123",
+      "userPhone": "569855",
       "userPost": "Opérateur",
-      "id": 2
+      "id": 3
     }
   ]
 }
