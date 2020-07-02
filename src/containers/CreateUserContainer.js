@@ -9,6 +9,7 @@ import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAct
 
 const mapStateToProps = (state) => {
   return {
+    currentUser : state.currentUser,
     getResponDataUser: state.users.getResponDataUser,
     errorResponDataUser: state.users.errorResponDataUser,
   };
@@ -16,7 +17,7 @@ const mapStateToProps = (state) => {
 
 class CreateUserContainer extends Component {
   handleSubmit(data) {
-    this.props.postUserCreate(data);
+    this.props.postUserCreate(data,this.props.currentUser);
   }
 
   render() {

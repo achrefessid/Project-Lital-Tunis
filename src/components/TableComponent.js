@@ -1,15 +1,9 @@
+import { Button as Btn, Icon } from "semantic-ui-react";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
-
-import { Button as Btn ,Icon } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInfo,
-  faEdit,
-  faTrash,
-  faUserPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"; //serach
 import paginationFactory from "react-bootstrap-table2-paginator"; //mta3 tabdil page 123
 import { Link } from "react-router-dom";
@@ -32,29 +26,23 @@ const defaultSorted = [
     order: "asc",
   },
 ];
-/*--------------------------------------------------------------------------------*/
-const mapStateToProps = (state) => {
-  return {
-    getUsersList: state.users.getUsersList,
-    errorUsersList: state.users.errorUsersList,
-  };
-};
+
 /*-Tableau------------------------------------------------------------------------*/
 const TableComponent = (props) => {
   const handleClick = (dispatch, row) => {
     swal({
-      title: "Êtes vous sûre de vouloir supprimer ce produit ?",
-      icon: "warning",
+      title: "Voulez-vous vraiment supprimer ces données?",
+      icon: "avertissement",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        props.deleteUser(row);
-        swal("Produit supprimé", {
+        props.deleteUser(row, props.currentUser);
+        swal("Données du produit supprimées avec succès", {
           icon: "success",
         });
       } else {
-        swal("Suppression annulée");
+        swal("Impossible de supprimer les données");
       }
     });
   };
@@ -71,47 +59,79 @@ const TableComponent = (props) => {
     {
       dataField: "annee",
       text: "Année",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "saison",
       text: "Saison",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "createur",
       text: "Createur",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "gamme",
       text: "Gamme",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "sex",
       text: "Sex",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "modele",
       text: "Modéle",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "name",
       text: "Name",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
+    },
+    {
+      dataField: "mesure",
+      text: "Mesure",
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "link",
       text: "Action",
+      headerStyle: () => {
+        return { width: "31%" };
+      },
       /*-btn:details-edit-delete---------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
             <Link to={"detail/" + row.id}>
-              <Button color="red" className="mr-2">
+              <Button color="dark" className="mr-2">
                 <FontAwesomeIcon icon={faInfo} /> Détail
               </Button>
             </Link>
@@ -123,11 +143,11 @@ const TableComponent = (props) => {
             </Link>
 
             <Button
-              color="red"
+              color="dark"
               className="mr-2"
               onClick={() => handleClick(props.dispatch, row)}
             >
-              <FontAwesomeIcon icon={faTrash} /> delete
+              <FontAwesomeIcon icon={faTrash} /> supprimer
             </Button>
           </div>
         );
@@ -174,7 +194,6 @@ const TableComponent = (props) => {
         </ToolkitProvider>
       ) : (
         /*-search---------------------- */
-
         <div className="text-center">
           {props.errorUsersList ? (
             <h4>{props.errorUsersList}</h4>
@@ -185,6 +204,14 @@ const TableComponent = (props) => {
       )}
     </Container>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    getUsersList: state.users.getUsersList,
+    errorUsersList: state.users.errorUsersList,
+  };
 };
 
 export default connect(mapStateToProps, {

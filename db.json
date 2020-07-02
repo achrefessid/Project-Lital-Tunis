@@ -1,45 +1,5 @@
 {
-  "users": [
-    {
-      "annee": "2018",
-      "saison": "SS18",
-      "createur": "Lital",
-      "gamme": "Lital",
-      "sex": "Unisexe",
-      "modele": "Bloc Note",
-      "name": "Bassem hamrawi",
-      "mesure": "20.5*12*2",
-      "photo": "....",
-      "commentaire": "....",
-      "id": 2
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
-      "id": 9
-    },
-    {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "LItal",
-      "gamme": "Femme",
-      "sex": "Femme",
-      "modele": "Boucle",
-      "name": "Nahel",
-      "mesure": "9*6.5",
-      "photo": "",
-      "commentaire": "......",
-      "id": 10
-    }
-  ],
+  "users": [],
   "user": [
     {
       "userName": "Merys",
@@ -62,12 +22,12 @@
       "id": 2
     },
     {
-      "userName": "med",
-      "userMail": "salim@co.co",
-      "passWord": "clo147741",
-      "firstName": "salim",
-      "lastName": "amri",
-      "userPhone": "55240245",
+      "userName": "achref",
+      "userMail": "ach@co.co",
+      "passWord": "dfghj159!ach",
+      "firstName": "achref",
+      "lastName": "tictac",
+      "userPhone": "15423678",
       "userPost": "Opérateur",
       "id": 3
     }

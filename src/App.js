@@ -32,7 +32,7 @@ class App extends Component {
               </Switch>
 
 
-              : (this.props.user === "Administrateur") ?
+              : (this.props.user.userPost=== "Administrateur") ?
 
 
                 <Switch>
@@ -49,7 +49,7 @@ class App extends Component {
                   <Redirect to="/" />
                 </Switch>
 
-                : (this.props.user === "Opérateur") ?
+                : (this.props.user.userPost === "Opérateur") ?
                   <Switch>
                     <Route exact path="/" component={ProductContainer} />
                     <Route exact path="/product" component={ProductContainer} />
@@ -61,7 +61,8 @@ class App extends Component {
                     <Route exact path="/edit/:id" component={EditUserContainer} />
                     <Redirect to="/" />
                   </Switch>
-                  : <div>euhhh1 !</div>
+                  : <div>euhhh1 !{console.log("user",this.props.user)
+                  }</div>
             : <div>euhhh2 !</div>}
         </Router>
       </div>

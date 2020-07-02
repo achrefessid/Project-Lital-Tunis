@@ -10,7 +10,7 @@ class SignUp extends Component {
 
     if (x.length === 0) { alert("Données invalides") }
     else {
-      this.props.loginUser(x[0].userPost)
+      this.props.loginUser(x[0])
     }
   }
   //{window.location.pathname = "/home";}

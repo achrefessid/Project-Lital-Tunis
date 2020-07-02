@@ -4,11 +4,16 @@ import BackComponent from "../components/BackComponent";
 import { connect } from "react-redux";
 import FormComponent from "../components/FormComponent";
 import swal from "sweetalert";
-import { deleteUser,  postUserCreate,getUserDetail, putUserUpdate} from "../actions/productAction";
-
+import {
+  deleteUser,
+  postUserCreate,
+  getUserDetail,
+  putUserUpdate,
+} from "../actions/productAction";
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.currentUser,
     getResponDataUser: state.users.getResponDataUser,
     errorResponDataUser: state.users.errorResponDataUser,
   };
@@ -20,9 +25,13 @@ class EditUserContainer extends Component {
   }
 
   handleSubmit(data) {
-
-    this.props.putUserUpdate(data, this.props.match.params.id);
-    console.log("data",data,"id", this.props.match.params.id);
+    this.props.putUserUpdate(
+      data,
+      this.props.match.params.id,
+      this.props.currentUser
+    );
+    console.log("data", data, "id", this.props.match.params.id);
+    console.log("currentUser", this.props.currentUser);
   }
 
   render() {
@@ -54,5 +63,5 @@ export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
   deleteUser,
-  getUserDetail
+  getUserDetail,
 })(EditUserContainer);
