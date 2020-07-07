@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import BackComponentProduct from "../components/BackComponentProduct";
 import { connect } from "react-redux";
-import FormComponent from "../components/FormComponent";
+import FormComponentProduct from "../components/FormComponentProduct";
 import swal from "sweetalert";
-import { deleteUser,  postUserCreate,getUserDetail, putUserUpdate} from "../actions/productAction";
-
+import {
+  deleteUser,
+  postUserCreate,
+  getUserDetail,
+  putUserUpdate,
+} from "../actions/productAction";
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.currentUser,
     getResponDataUser: state.users.getResponDataUser,
     errorResponDataUser: state.users.errorResponDataUser,
   };
@@ -20,9 +25,13 @@ class EditProductContainer extends Component {
   }
 
   handleSubmit(data) {
-
-    this.props.putUserUpdate(data, this.props.match.params.id);
-    console.log("data",data,"id", this.props.match.params.id);
+    this.props.putUserUpdate(
+      data,
+      this.props.match.params.id,
+      this.props.currentUser
+    );
+    console.log("data", data, "id", this.props.match.params.id);
+    console.log("currentUser", this.props.currentUser);
   }
 
   render() {
@@ -31,7 +40,7 @@ class EditProductContainer extends Component {
         swal("Failed!", this.props.errorResponDataUser, "error");
       } else {
         swal(
-          "User Updated!",
+          "Product Updated!",
           "Année : " +
             this.props.getResponDataUser.annee +
             " , Saisson : " +
@@ -44,7 +53,7 @@ class EditProductContainer extends Component {
       <Container>
         <BackComponentProduct />
         <h1>Modifier le produit</h1>
-        <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
+        <FormComponentProduct onSubmit={(data) => this.handleSubmit(data)} />
       </Container>
     );
   }
@@ -54,5 +63,5 @@ export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
   deleteUser,
-  getUserDetail
+  getUserDetail,
 })(EditProductContainer);

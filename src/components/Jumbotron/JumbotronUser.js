@@ -21,11 +21,10 @@ const JumbotronComponent = (props) => {
           <hr className="my-2" />
 
           <p>
-            Cette page nous permet d'ajouter / modifier / supprimer un utilisateur.
+            Cette page permet à l'administrateur d'ajouter un utilisateur, de modifier ses informations ou de le supprimer.
           </p>
 
           <p className="lead">
-          <Button color="dark"><FontAwesomeIcon icon={faInfo}/> Learn More</Button>
           </p>
         </Container>
       </Jumbotron>

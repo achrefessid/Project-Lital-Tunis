@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "annee": "2050",
+      "annee": "2030",
       "saison": "SS18",
       "createur": "Lital",
       "gamme": "Buidness",
@@ -12,19 +12,6 @@
       "photo": "....",
       "commentaire": "....",
       "id": 1
-    },
-    {
-      "annee": "2018",
-      "saison": "SS18",
-      "gamme": "Lital",
-      "sex": "Unisexe",
-      "modele": "Bloc Note",
-      "name": "Bassem",
-      "mesure": "20.5*12*2",
-      "photo": "....",
-      "commentaire": "....",
-      "createur": "Lital",
-      "id": 2
     },
     {
       "annee": "2019",
@@ -196,19 +183,6 @@
       "id": 16
     },
     {
-      "annee": "2019",
-      "saison": "SS19",
-      "createur": "Lital",
-      "gamme": "Buisness",
-      "sex": "Unisexe",
-      "name": "...",
-      "mesure": "19*9*2",
-      "photo": "...",
-      "commentaire": "...",
-      "modele": "Pochette ceinture",
-      "id": 17
-    },
-    {
       "saison": "SS19",
       "createur": "Lital",
       "gamme": "Femme",
@@ -250,12 +224,32 @@
   ],
   "user": [
     {
-      "userName": "salim",
-      "userMail": "salim@gmail.com",
-      "passWord": "0000",
-      "firstName": "salim",
-      "lastName": "salim 123",
-      "userPhone": "569855",
+      "userName": "Merys",
+      "userMail": "Meriam@co.co",
+      "passWord": "clo159753",
+      "firstName": "Meriame",
+      "lastName": "Melle",
+      "userPhone": "25522525",
+      "userPost": "Administrateur",
+      "id": 1
+    },
+    {
+      "userName": "soltan",
+      "userMail": "kmkhalilo@gmail.com",
+      "passWord": "12345678",
+      "firstName": "khemeri",
+      "lastName": "mohamed khalil",
+      "userPhone": "27145229",
+      "userPost": "Administrateur",
+      "id": 2
+    },
+    {
+      "userName": "achref",
+      "userMail": "ach@co.co",
+      "passWord": "dfghj159!ach",
+      "firstName": "achref",
+      "lastName": "tictac",
+      "userPhone": "15423678",
       "userPost": "Opérateur",
       "id": 3
     }

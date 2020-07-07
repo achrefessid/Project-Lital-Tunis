@@ -32,7 +32,7 @@ const ModalEdite = (props) => {
 
     props.edite(obj);
     console.log(obj);
-    // toggle();
+    toggle();
   };
 
   const externalCloseBtn = (

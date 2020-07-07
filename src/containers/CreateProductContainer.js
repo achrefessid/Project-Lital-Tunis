@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
 import BackComponentProduct from "../components/BackComponentProduct";
-import FormComponent from "../components/FormComponent";
+import FormComponentProduct from "../components/FormComponentProduct";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
@@ -9,6 +9,7 @@ import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAct
 
 const mapStateToProps = (state) => {
   return {
+    currentUser : state.currentUser,
     getResponDataUser: state.users.getResponDataUser,
     errorResponDataUser: state.users.errorResponDataUser,
   };
@@ -16,7 +17,7 @@ const mapStateToProps = (state) => {
 
 class CreateProductContainer extends Component {
   handleSubmit(data) {
-    this.props.postUserCreate(data);
+    this.props.postUserCreate(data,this.props.currentUser);
   }
 
   render() {
@@ -24,18 +25,18 @@ class CreateProductContainer extends Component {
       if(this.props.errorResponDataUser)
       {
         swal(
-            "Échoué!",
+            "Failed!",
             this.props.errorResponDataUser,
-            "Erreur"
+            "error"
           );
       }else {
         swal(
-            "Produit créé!",
+            "User Created!",
             "Année : " +
               this.props.getResponDataUser.annee +
               " , Saison : " +
               this.props.getResponDataUser.saison,
-            "Succès"
+            "success"
           );
       }
     }
@@ -43,7 +44,7 @@ class CreateProductContainer extends Component {
       <Container>
         <BackComponentProduct />
         <h1>Ajouter Produits</h1>
-        <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
+        <FormComponentProduct onSubmit={(data) => this.handleSubmit(data)} />
       </Container>
     );
   }

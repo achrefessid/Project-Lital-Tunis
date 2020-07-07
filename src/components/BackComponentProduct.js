@@ -10,7 +10,7 @@ const BackComponentProduct = () => {
       <Col>
         <Link to="/product"> {/*ki n5ali to far5a ki ninzil a3lih irja3ni lil page home*/}
           <Button color="dark">
-            <FontAwesomeIcon icon={faArrowLeft} /> Back
+            <FontAwesomeIcon icon={faArrowLeft} /> Retour
           </Button>
         </Link>
       </Col>

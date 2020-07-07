@@ -1,5 +1,3 @@
-//ajouter produits
-//edit produits
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
@@ -53,13 +51,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-class FormComponent extends Component {
+class FormComponentProduct extends Component {
 
   render() {
     return (
       <form onSubmit={this.props.handleSubmit}>
         <FormGroup row>
-
         <Col md={6}>
             <FormGroup>
               <Field
@@ -178,8 +175,7 @@ class FormComponent extends Component {
               <Button
                 color="dark"
                 type="submit"
-                disabled={this.props.submitting}
-              >
+                disabled={this.props.submitting}>
                 Submit
               </Button>
             </FormGroup>
@@ -190,9 +186,9 @@ class FormComponent extends Component {
   }
 }
 
-FormComponent = reduxForm({
+FormComponentProduct = reduxForm({
   form: "formCreateUser",
   validate: UserValidation,
   enableReinitialize: true,
-})(FormComponent);
-export default connect(mapStateToProps, null)(FormComponent);
+})(FormComponentProduct);
+export default connect(mapStateToProps, null)(FormComponentProduct);

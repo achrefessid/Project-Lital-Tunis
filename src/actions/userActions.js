@@ -64,8 +64,7 @@ export const editeUser = (payload) => ({
 export function editeUserFromApi(el) {
   console.log(el);
   return (dispatch) =>
-    Axios.patch("http://localhost:3001/user/" + el.id, el).then(
-      (res) => dispatch(editeUser(el)),
-      window.location.reload()
+    Axios.patch("http://localhost:3001/user/" + el.id, el).then((res) =>
+      dispatch(getUsersFromApi())
     );
 }

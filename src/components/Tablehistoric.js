@@ -1,12 +1,10 @@
 import React ,{useEffect} from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";  
 import paginationFactory from "react-bootstrap-table2-paginator";          
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from 'sweetalert';
 import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
@@ -45,8 +43,24 @@ const TableHistoric = (props) => {
       }, {
       dataField: 'date',
       text: 'Date',
-      }
-    ];
+},{
+  dataField: "link",
+  text: "Action",
+  headerStyle: () => {
+    return { width: "12%" };
+  }, 
+  formatter: (rowContent, row) => {
+    return (
+      <div>
+        <Button color="dark" className="mr-2" >
+          <FontAwesomeIcon icon={faTrash} /> supprimer
+        </Button>
+      </div>
+    );
+  },
+},
+];
+
       return (
         <Container>
           {props.historic ? (
@@ -70,7 +84,7 @@ const TableHistoric = (props) => {
                   </Row>
                   <BootstrapTable
                     {...props.baseProps}
-                    pagination={paginationFactory()} //mta3 123 ili tbadil
+                    pagination={paginationFactory()} 
                   />
                 </div>
               )}
@@ -91,14 +105,15 @@ const TableHistoric = (props) => {
 /*--------------------------------------------------------------------------------*/
 const mapStateToProps = (state) => {
     return {
-      historic: state.historicReducer
+      historic: state.historicReducer,
+      getUsersList: state.users.getUsersList,
+      errorUsersList: state.users.errorUsersList,
     };
   };
 
-export default connect(mapStateToProps, {
-  postUserCreate,
-  putUserUpdate,
-  deleteUser,
-  getHistory
-})
-(TableHistoric)
+  export default connect(mapStateToProps, {
+    postUserCreate,
+    putUserUpdate,
+    deleteUser,
+    getHistory,
+  })(TableHistoric);
