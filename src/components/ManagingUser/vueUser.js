@@ -3,11 +3,9 @@ import {
   Button as Btn,
   Icon,
   Label,
-  Menu,
   Table,
-  Dropdown,
 } from "semantic-ui-react";
-import { Button } from "reactstrap";
+// import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import ModalEdite from "./EditeUser";
@@ -21,11 +19,13 @@ class VueUser extends Component {
   componentDidMount() {
     this.props.getAllUsers();
   }
+
   render() {
+    //const { SearchBar } = Search;
     return (
       <div className="tab">
         <NavLink exact to="/signin">
-          <Btn icon labelPosition="left">
+          <Btn className="styleb" icon labelPosition="left">
             <Icon name="add user" />
             Ajouter un utilisateur
           </Btn>
@@ -40,6 +40,17 @@ class VueUser extends Component {
             className="icon"
           ></Dropdown>
         </NavLink> */}
+
+        {/*<ToolkitProvider
+          bootstrap4
+          data={this.props.users}
+          search
+        ></ToolkitProvider>
+
+        <div className="float-right">
+          <SearchBar {...this.props.searchProps} placeholder="Search .." />
+        </div>*/}
+
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -75,9 +86,7 @@ class VueUser extends Component {
             ))}
           </Table.Body>
 
-          <Table.Footer>
-            
-          </Table.Footer>
+          <Table.Footer></Table.Footer>
         </Table>
       </div>
     );

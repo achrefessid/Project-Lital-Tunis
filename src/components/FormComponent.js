@@ -159,7 +159,7 @@ class FormComponent extends Component {
           <Col md={6}>
             <FormGroup>
               <Field
-                type="text"
+                type="textarea"
                 name="commentaire"
                 component={renderField}
                 label="Commentaire :"
@@ -173,11 +173,12 @@ class FormComponent extends Component {
           <Col md="12">
             <FormGroup>
               <Button
+               className="styleb"
                 color="dark"
                 type="submit"
                 disabled={this.props.submitting}
               >
-                Submit
+                Valider
               </Button>
             </FormGroup>
           </Col>

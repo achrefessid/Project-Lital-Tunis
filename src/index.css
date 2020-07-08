@@ -8,10 +8,18 @@ code {
     monospace;
 }
 
-.mr-auto{
+/* .mr-auto{
   margin-left: 70%;
-}
+} */
 
 .historica{
   margin: 5% !important;
+}
+
+.styleb{
+  font-family: fantasy !important;
+}
+
+.bientot{
+  font-size: xx-large;
 }

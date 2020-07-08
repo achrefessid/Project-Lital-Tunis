@@ -73,13 +73,13 @@ const TableHistoric = (props) => {
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
-                    <SearchBar {...props.searchProps} placeholder="Search .." />
+                    <SearchBar className="styleb" {...props.searchProps} placeholder="Search .." />
                   </div>
                 </Col>
               </Row>
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()} //mta3 123 ili tbadil
+                pagination={paginationFactory()} 
               />
             </div>
           )}

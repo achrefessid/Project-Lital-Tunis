@@ -3,11 +3,7 @@ import React from "react";
 import { Jumbotron, Button, Container } from "reactstrap";
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
-  return {
-    titlehistorique: state.users.titlehistorique
-  }
-}
+
 
 const JumbotronHistoric = (props) => {
   return (
@@ -29,6 +25,12 @@ const JumbotronHistoric = (props) => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    titlehistorique: state.users.titlehistorique
+  }
+}
 
 export default connect(mapStateToProps, null)(JumbotronHistoric);
 

@@ -11,6 +11,6 @@ const Xreducer = combineReducers({
     users,
     historicReducer,
     userReducer,
-    form: formReducer,
+    form: formReducer
 })
 export default Xreducer;

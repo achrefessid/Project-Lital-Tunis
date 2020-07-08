@@ -11,14 +11,6 @@ import {
   putUserUpdate,
 } from "../actions/productAction";
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.currentUser,
-    getResponDataUser: state.users.getResponDataUser,
-    errorResponDataUser: state.users.errorResponDataUser,
-  };
-};
-
 class EditUserContainer extends Component {
   componentDidMount() {
     this.props.getUserDetail(this.props.match.params.id);
@@ -37,10 +29,10 @@ class EditUserContainer extends Component {
   render() {
     if (this.props.getResponDataUser || this.props.errorResponDataUser) {
       if (this.props.errorResponDataUser) {
-        swal("Failed!", this.props.errorResponDataUser, "error");
+        swal("Echec!", this.props.errorResponDataUser, "error");
       } else {
         swal(
-          "User Updated!",
+          "Produit à jour!",
           "Année : " +
             this.props.getResponDataUser.annee +
             " , Saisson : " +
@@ -53,11 +45,22 @@ class EditUserContainer extends Component {
       <Container>
         <BackComponent />
         <h1>Modifier le produit</h1>
-        <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
+        <FormComponent
+          className="styleb"
+          onSubmit={(data) => this.handleSubmit(data)}
+        />
       </Container>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    getResponDataUser: state.users.getResponDataUser,
+    errorResponDataUser: state.users.errorResponDataUser,
+  };
+};
 
 export default connect(mapStateToProps, {
   postUserCreate,

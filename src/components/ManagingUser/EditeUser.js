@@ -2,6 +2,9 @@ import { connect } from "react-redux";
 import { editeUserFromApi } from "../../actions/userActions";
 import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import {
+  Icon
+} from "semantic-ui-react";
 
 const ModalEdite = (props) => {
   const { buttonLabel, className } = props;
@@ -55,7 +58,7 @@ const ModalEdite = (props) => {
         className={className}
         external={externalCloseBtn}
       >
-        <ModalHeader>Modifier l'utilisateur</ModalHeader>
+        <ModalHeader className="styleb" > <Icon name="edit" /> Modifier l'utilisateur</ModalHeader>
         <ModalBody>
           <form className="modaledit">
             <div>

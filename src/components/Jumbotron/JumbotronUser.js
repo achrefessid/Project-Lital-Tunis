@@ -5,11 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //mta3 font awe
 import { faInfo } from '@fortawesome/free-solid-svg-icons'//mta3 font awesome
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.users.user
-  }
-}
+
 
 const JumbotronComponent = (props) => {
   return (
@@ -31,5 +27,11 @@ const JumbotronComponent = (props) => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.users.user
+  }
+}
 
 export default connect(mapStateToProps, null)(JumbotronComponent);

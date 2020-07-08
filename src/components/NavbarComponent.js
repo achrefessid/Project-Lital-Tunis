@@ -47,7 +47,7 @@ const NavbarComponent = (props) => {
             {props.user ?
               props.user !== "none" ?
               <NavLink tag={soltanLink} to="/dec">
-                <Btn onClick={() => { props.logoutUser() }} icon labelPosition='right'>
+                <Btn className="styleb" onClick={() => { props.logoutUser() }} icon labelPosition='right'>
               <Icon name="sign-out" />
               Déconnecter</Btn>
               </NavLink>

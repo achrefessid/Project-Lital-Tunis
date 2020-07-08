@@ -8,9 +8,9 @@ const BackComponent = () => {
   return (
     <Row className="mb-2">
       <Col>
-        <Link to="/product"> {/*ki n5ali to far5a ki ninzil a3lih irja3ni lil page home*/}
-          <Button color="dark">
-            <FontAwesomeIcon icon={faArrowLeft} /> Back
+        <Link to="/product">
+          <Button  className="styleb" color="dark">
+            <FontAwesomeIcon icon={faArrowLeft} /> Retour aux produits
           </Button>
         </Link>
       </Col>

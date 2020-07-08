@@ -2,12 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { Table } from "reactstrap";
 
-const mapStateToProps = (state) => {
-  return {
-    getUserDetail: state.users.getUserDetail,
-    errorUserDetail: state.users.errorUserDetail,
-  };
-};
 
 const DetailUserComponent = (props) => {
   return (
@@ -66,6 +60,14 @@ const DetailUserComponent = (props) => {
       </tbody>
     </Table>
   );
+};
+
+
+const mapStateToProps = (state) => {
+  return {
+    getUserDetail: state.users.getUserDetail,
+    errorUserDetail: state.users.errorUserDetail,
+  };
 };
 
 export default connect(mapStateToProps, null)(DetailUserComponent);

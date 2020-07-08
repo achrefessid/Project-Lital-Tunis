@@ -4,8 +4,8 @@ import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"; //serach
-import paginationFactory from "react-bootstrap-table2-paginator"; //mta3 tabdil page 123
+import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"; 
+import paginationFactory from "react-bootstrap-table2-paginator"; 
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
@@ -15,11 +15,10 @@ import {
   putUserUpdate,
 } from "../actions/productAction";
 
-/*-mta3 search */
+/*------------*/
 const { SearchBar } = Search;
 
-/*-il id wil action walafihom i5tot, ki tinzil a3lihom ama ya3tik mi lowil li li5ér 
-wala mi li5ér li lowél------------------------------------------------------------*/
+/*---------------------------------*/
 const defaultSorted = [
   {
     dataField: "id",
@@ -32,7 +31,7 @@ const TableComponent = (props) => {
   const handleClick = (dispatch, row) => {
     swal({
       title: "Voulez-vous vraiment supprimer ces données?",
-      icon: "avertissement",
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
@@ -51,7 +50,7 @@ const TableComponent = (props) => {
     {
       dataField: "id",
       text: "ID",
-      sort: true, //tab3in ili irodo il haja mi lowil ou mili5ér
+      sort: true, 
       headerStyle: () => {
         return { width: "5%" };
       },
@@ -131,23 +130,23 @@ const TableComponent = (props) => {
         return (
           <div>
             <Link to={"detail/" + row.id}>
-              <Button color="dark" className="mr-2">
+              <Button color="dark" className="mr-2 styleb">
                 <FontAwesomeIcon icon={faInfo} /> Détail
               </Button>
             </Link>
 
             <Link to={"edit/" + row.id}>
-              <Button color="dark" className="mr-2">
+              <Button color="dark" className="mr-2 styleb">
                 <FontAwesomeIcon icon={faEdit} /> Editer
               </Button>
             </Link>
 
             <Button
               color="dark"
-              className="mr-2"
+              className="mr-2 styleb" 
               onClick={() => handleClick(props.dispatch, row)}
             >
-              <FontAwesomeIcon icon={faTrash} /> supprimer
+              <FontAwesomeIcon icon={faTrash} /> Supprimer
             </Button>
           </div>
         );
@@ -171,7 +170,7 @@ const TableComponent = (props) => {
               <Row>
                 <Col>
                   <Link to="/create">
-                    <Btn icon labelPosition="left">
+                    <Btn className="styleb" icon labelPosition="left">
                       <Icon name="add product" />
                       Ajouter un produit
                     </Btn>
@@ -181,13 +180,13 @@ const TableComponent = (props) => {
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
-                    <SearchBar {...props.searchProps} placeholder="Search .." />
+                    <SearchBar className="styleb" {...props.searchProps} placeholder="Search .." />
                   </div>
                 </Col>
               </Row>
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()} //mta3 123 ili tbadil
+                pagination={paginationFactory()} 
               />
             </div>
           )}
