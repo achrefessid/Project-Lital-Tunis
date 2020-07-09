@@ -3,9 +3,11 @@ import {
   Button as Btn,
   Icon,
   Label,
+  Menu,
   Table,
+  Dropdown,
 } from "semantic-ui-react";
-// import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
+import { Button, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import ModalEdite from "./EditeUser";
@@ -14,14 +16,14 @@ import {
   deleteUsersFromApi,
   editeUserFromApi,
 } from "../../actions/userActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class VueUser extends Component {
   componentDidMount() {
     this.props.getAllUsers();
   }
-
   render() {
-    //const { SearchBar } = Search;
     return (
       <div className="tab">
         <NavLink exact to="/signin">
@@ -40,24 +42,13 @@ class VueUser extends Component {
             className="icon"
           ></Dropdown>
         </NavLink> */}
-
-        {/*<ToolkitProvider
-          bootstrap4
-          data={this.props.users}
-          search
-        ></ToolkitProvider>
-
-        <div className="float-right">
-          <SearchBar {...this.props.searchProps} placeholder="Search .." />
-        </div>*/}
-
         <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Pseudo</Table.HeaderCell>
+              <Table.HeaderCell>Mail</Table.HeaderCell>
               <Table.HeaderCell>Mot de passe</Table.HeaderCell>
-              <Table.HeaderCell className="edit">Editer</Table.HeaderCell>
-              <Table.HeaderCell>Supprimer</Table.HeaderCell>
+              <Table.HeaderCell className="edit">Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -67,19 +58,21 @@ class VueUser extends Component {
                   <Label ribbon>{el.userPost}</Label>
                   {el.userName}
                 </Table.Cell>
-                <Table.Cell>{el.passWord}</Table.Cell>
+                <Table.Cell>{el.userMail}</Table.Cell>
                 <Table.Cell>
-                  <ModalEdite el={el} />{" "}
+                  <Table.Cell>{el.passWord}</Table.Cell>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell className="btnsusers">
+                  <ModalEdite el={el} />
                   <button
                     class="ui button"
                     title="Supprimer"
                     onClick={() => {
-                      this.props.delete(el.id);
+                      this.props.delete(el._id);
                     }}
                   >
-                    Supprimer
+                    <FontAwesomeIcon icon={faTrash} />
+                  {"  "}Supprimer
                   </button>
                 </Table.Cell>
               </Table.Row>

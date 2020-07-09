@@ -11,19 +11,17 @@
 
 .tab{
     font-family: fantasy !important;
-    margin: 0 10%;
+    margin: 2% 10%;
 }
 
 .ui button{
     font-family: fantasy !important;
-    background-color: blue !important;
-    color: blanchedalmond !important;
 }
 
-.ui button:hover{
+/* .ui button:hover{
     background-color: rgb(207, 202, 202) !important;
     color: rgb(156, 9, 120) !important;
-}
+} */
 
 .modaledit span{
     font-family: fantasy !important;
@@ -37,4 +35,12 @@
     font-size: medium;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.btnsusers, .edit{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
 }

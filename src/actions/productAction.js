@@ -8,7 +8,7 @@ export const PUT_USER_EDIT = "PUT_USER_EDIT";
 export const getUsersList = () => {
   return (dispatch) => {
     axios
-      .get("http://localhost:3001/users/")
+      .get("http://localhost:3001/products/")
       .then(function (response) {
         dispatch({
           type: GET_USERS_LIST,
@@ -33,7 +33,7 @@ export const getUsersList = () => {
 export const getUserDetail = (id) => {
   return (dispatch) => {
     axios
-      .get("http://localhost:3001/users/" + id)
+      .get("http://localhost:3001/products/" + id)
       .then(function (response) {
         dispatch({
           type: GET_USER_DETAIL,
@@ -61,7 +61,7 @@ export const postUserCreate = (data, currentUser) => {
 
   return (dispatch) => {
     axios
-      .post("http://localhost:3001/users/", data)
+      .post("http://localhost:3001/products/", data)
       .then(function (response) {
         //historic
         let y = {
@@ -98,7 +98,7 @@ export const postUserCreate = (data, currentUser) => {
 export const putUserUpdate = (data, id, currentUser) => {
   return (dispatch) => {
     axios
-      .put("http://localhost:3001/users/" + id, data)
+      .put("http://localhost:3001/products/" + id, data)
       .then(function (response) {
         //historic
         let y = {
@@ -139,7 +139,7 @@ export const deleteUser = (row, currentUser) => {
 
   return (dispatch) => {
     axios
-      .delete("http://localhost:3001/users/" + row.id)
+      .delete("http://localhost:3001/products/" + row._id)
       .then((response) => {
         console.log(response);
         //historic

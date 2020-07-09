@@ -4,8 +4,8 @@ import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Button, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"; 
-import paginationFactory from "react-bootstrap-table2-paginator"; 
+import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
+import paginationFactory from "react-bootstrap-table2-paginator";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
@@ -47,14 +47,7 @@ const TableComponent = (props) => {
   };
 
   const columns = [
-    {
-      dataField: "id",
-      text: "ID",
-      sort: true, 
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
+    
     {
       dataField: "annee",
       text: "Année",
@@ -123,31 +116,31 @@ const TableComponent = (props) => {
       dataField: "link",
       text: "Action",
       headerStyle: () => {
-        return { width: "31%" };
+        return { width: "40%" ,textAlign: "center"};
       },
       /*-btn:details-edit-delete---------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
-            <Link to={"detail/" + row.id}>
-              <Button color="dark" className="mr-2 styleb">
+            <Link to={"detail/" + row._id}>
+              <button color="dark" className="mr-2 styleb ui button">
                 <FontAwesomeIcon icon={faInfo} /> Détail
-              </Button>
+              </button>
             </Link>
 
-            <Link to={"edit/" + row.id}>
-              <Button color="dark" className="mr-2 styleb">
+            <Link to={"edit/" + row._id}>
+              <button color="dark" className="mr-2 styleb ui button">
                 <FontAwesomeIcon icon={faEdit} /> Editer
-              </Button>
+              </button>
             </Link>
 
-            <Button
+            <button
               color="dark"
-              className="mr-2 styleb" 
+              className="mr-2 styleb ui button"
               onClick={() => handleClick(props.dispatch, row)}
             >
               <FontAwesomeIcon icon={faTrash} /> Supprimer
-            </Button>
+            </button>
           </div>
         );
       },
@@ -180,13 +173,17 @@ const TableComponent = (props) => {
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
-                    <SearchBar className="styleb" {...props.searchProps} placeholder="Search .." />
+                    <SearchBar
+                      className="styleb"
+                      {...props.searchProps}
+                      placeholder="Search .."
+                    />
                   </div>
                 </Col>
               </Row>
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()} 
+                pagination={paginationFactory()}
               />
             </div>
           )}

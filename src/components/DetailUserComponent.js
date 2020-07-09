@@ -7,6 +7,11 @@ const DetailUserComponent = (props) => {
   return (
     <Table striped>
       <tbody>
+      <tr>
+          <td width="200">ID</td>
+          <td width="10">:</td>
+          <td>{props.getUserDetail._id}</td>
+        </tr>
         <tr>
           <td width="200">Anneé</td>
           <td width="10">:</td>

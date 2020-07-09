@@ -57,6 +57,7 @@ class FormComponent extends Component {
     return (
       <form onSubmit={this.props.handleSubmit}>
         <FormGroup row>
+          
           <Col md={6}>
             <FormGroup>
               <Field
