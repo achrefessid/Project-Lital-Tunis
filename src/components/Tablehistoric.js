@@ -28,12 +28,8 @@ const TableHistoric = (props) => {
 
   const columns = [
     {
-      dataField: "id",
-      text: "ID",
-      sort: true,
-      headerStyle: () => {
-        return { width: "5%" };
-      },
+      dataField: "date",
+      text: "Date",
     },
     {
       dataField: "username",
@@ -43,18 +39,15 @@ const TableHistoric = (props) => {
       dataField: "name",
       text: "Nom du produit",
     },
-    {
-      dataField: "operation",
-      text: "Operation",
-    },
+
     {
       dataField: "modele",
       text: "Modéle",
     },
     {
-      dataField: "date",
-      text: "Date",
-    },
+      dataField: "operation",
+      text: "Operation",
+    }
   ];
   return (
     <Container>
@@ -73,13 +66,17 @@ const TableHistoric = (props) => {
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
-                    <SearchBar className="styleb" {...props.searchProps} placeholder="Search .." />
+                    <SearchBar
+                      className="styleb"
+                      {...props.searchProps}
+                      placeholder="Search .."
+                    />
                   </div>
                 </Col>
               </Row>
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()} 
+                pagination={paginationFactory()}
               />
             </div>
           )}

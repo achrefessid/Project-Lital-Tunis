@@ -28,29 +28,35 @@ const NavbarComponent = (props) => {
           <NavbarBrand><NavLink tag={soltanLink} exact to="/"><img src="https://i1.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo_lital_0.png?fit=328%2C111" width="120" /> </NavLink></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
+            
 
 
-              <NavItem>
-                <NavLink tag={soltanLink} to="/user">Utilisateur</NavLink>
-              </NavItem>
 
-              <NavItem>
-                <NavLink tag={soltanLink} to="/product">Produits</NavLink>
-              </NavItem>
 
-              <NavItem>
-                <NavLink tag={soltanLink} to="/historic">Historique</NavLink>
-              </NavItem>
-
-            </Nav>
+            
             {props.user ?
               props.user !== "none" ?
+              <>
+              <Nav className="mr-auto" navbar>
+              <NavItem>
+              <NavLink tag={soltanLink} to="/user">Utilisateur</NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={soltanLink} to="/product">Produits</NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={soltanLink} to="/historic">Historique</NavLink>
+            </NavItem>
+            </Nav>
               <NavLink tag={soltanLink} to="/dec">
                 <Btn className="styleb" onClick={() => { props.logoutUser() }} icon labelPosition='right'>
               <Icon name="sign-out" />
               Déconnecter</Btn>
               </NavLink>
+              
+              </>
               : null : null
               }
           </Collapse>

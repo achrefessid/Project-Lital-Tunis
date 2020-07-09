@@ -32,11 +32,11 @@ class EditUserContainer extends Component {
         swal("Echec!", this.props.errorResponDataUser, "error");
       } else {
         swal(
-          "Produit à jour!",
-          "Année : " +
-            this.props.getResponDataUser.annee +
-            " , Saisson : " +
-            this.props.getResponDataUser.saison,
+          "Produit à jour!","",
+          // "Année : " +
+          //   this.props.getResponDataUser.annee +
+          //   " , Saisson : " +
+          //   this.props.getResponDataUser.saison,
           "success"
         );
       }
