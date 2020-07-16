@@ -1,12 +1,12 @@
 import { Button as Btn, Icon } from "semantic-ui-react";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
-import { Container, Button, Row, Col, Spinner } from "reactstrap";
+import { Container, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import { Link } from "react-router-dom";
+import { Link , NavLink} from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import {
@@ -169,7 +169,7 @@ const TableComponent = (props) => {
                     </Btn>
                   </Link>
                 </Col>
-
+                  <NavLink to="/product-galery">galery</NavLink>
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">

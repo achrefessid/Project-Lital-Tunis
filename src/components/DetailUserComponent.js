@@ -2,12 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import { Table } from "reactstrap";
 
-
 const DetailUserComponent = (props) => {
   return (
     <Table striped>
       <tbody>
-      <tr>
+        <tr>
+          <td width="200">Photo</td>
+          <td width="10">:</td>
+          <td>
+            <a
+              target="_blank"
+              href={"http://localhost:3001/" + props.getUserDetail.photo}
+            >
+              <img
+                style={{ width: "50%" }}
+                src={"http://localhost:3001/" + props.getUserDetail.photo}
+              />
+            </a>
+          </td>
+        </tr>
+        <tr>
           <td width="200">ID</td>
           <td width="10">:</td>
           <td>{props.getUserDetail._id}</td>
@@ -53,9 +67,9 @@ const DetailUserComponent = (props) => {
           <td>{props.getUserDetail.mesure}</td>
         </tr>
         <tr>
-          <td width="200">Photo</td>
+          <td width="200">Quantité</td>
           <td width="10">:</td>
-          <td>{props.getUserDetail.photo}</td>
+          <td>{props.getUserDetail.qte}</td>
         </tr>
         <tr>
           <td width="200">Commentaire</td>
@@ -66,7 +80,6 @@ const DetailUserComponent = (props) => {
     </Table>
   );
 };
-
 
 const mapStateToProps = (state) => {
   return {

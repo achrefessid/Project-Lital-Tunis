@@ -3,11 +3,8 @@ import {
   Button as Btn,
   Icon,
   Label,
-  Menu,
   Table,
-  Dropdown,
 } from "semantic-ui-react";
-import { Button, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import ModalEdite from "./EditeUser";

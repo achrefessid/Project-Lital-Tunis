@@ -8,6 +8,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ProductContainer from "./containers/ProductContainer";
+import GaleryContainer from "./containers/GaleryContainer";
 import HistoricContainer from "./containers/HistoricContainer";
 import CreateUserContainer from "./containers/CreateUserContainer";
 import EditUserContainer from "./containers/EditUserContainer";
@@ -35,6 +36,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={UserContainer} />
                 <Route exact path="/product" component={ProductContainer} />
+                <Route exact path="/product-galery" component={GaleryContainer} />
                 <Route exact path="/historic" component={HistoricContainer} />
                 <Route exact path="/user" component={UserContainer} />
                 <Route exact path="/signin" component={SingIn} />
@@ -52,6 +54,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={ProductContainer} />
                 <Route exact path="/product" component={ProductContainer} />
+                <Route exact path="/product-galery" component={GaleryContainer} />
                 <Route exact path="/historic" component={HistoricContainer} />
                 <Route exact path="/dec" component={Dex} />
                 <Route exact path="/create" component={CreateUserContainer} />

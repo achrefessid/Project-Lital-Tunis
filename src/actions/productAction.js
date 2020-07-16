@@ -56,12 +56,27 @@ export const getUserDetail = (id) => {
 };
 
 export const postUserCreate = (data, currentUser) => {
-  console.log("create action");
-  console.log("create data", data);
-
   return (dispatch) => {
+    const formData = new FormData();
+    formData.append("photo", data.photo[0]);
+    formData.set("annee", data.annee);
+    formData.set("commentaire", data.commentaire);
+    formData.set("createur", data.createur);
+    formData.set("gamme", data.gamme);
+    formData.set("mesure", data.mesure);
+    formData.set("modele", data.modele);
+    formData.set("name", data.name);
+    formData.set("saison", data.saison);
+    formData.set("sex", data.sex);
+    formData.set("qte", data.qte);
+  
+    
     axios
-      .post("http://localhost:3001/products/", data)
+      .post("http://localhost:3001/products/", formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      })
       .then(function (response) {
         //historic
         let y = {

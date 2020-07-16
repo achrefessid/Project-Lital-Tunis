@@ -1,18 +1,7 @@
 import * as types from "../types";
 import Axios from "axios";
 
-const getId = (payload) => {
-  let xxHistory = [];
-  let xid;
-  xxHistory = [...payload];
-  xid = xxHistory
-    .map((e) => e.id)
-    .reduce(function (a, b) {
-      return Math.max(a, b);
-    });
-  xid += 1;
-  return xid;
-};
+
 /*---------------------------------------get History--------------------------------------------------- */
 export const getHistory2 = (payload) => {
   const action = {
