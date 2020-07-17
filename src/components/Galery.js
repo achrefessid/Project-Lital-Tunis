@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button as Btn, Icon } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
 import "./Galery.css";
 
 export class Galery extends Component {
@@ -27,17 +29,19 @@ export class Galery extends Component {
                 </a>
                 <h2>{el.name}</h2>
 
-                <p>
-                  createur : {el.createur}- saison : {el.saison}
-                </p>
-                <p>
-                  gamme : {el.gamme}- modele: {el.modele}
-                </p>
-                <p>
-                  sex : {el.sex}- mesure : {el.mesure}
-                </p>
-                <p>quantité : {el.qte}</p>
-                <p>{el.annee}</p>
+                {/* <p>Createur : {el.createur} </p>
+                <p>Année : {el.annee}</p>
+                <p>Saison : {el.saison}</p>
+                <p>Gamme : {el.gamme}</p>
+                <p> Modele: {el.modele}</p>
+                <p>Sex : {el.sex}</p>
+                <p> mesure : {el.mesure}</p>
+                <p>Quantité : {el.qte}</p> */}
+                <Link to={"detail/" + el._id}>
+              <button color="dark" className="mr-2 styleb ui button">
+                <FontAwesomeIcon icon={faInfo} /> Détail
+              </button>
+            </Link>
               </div>
             );
           })}
