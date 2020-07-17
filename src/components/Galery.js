@@ -1,30 +1,42 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Button as Btn, Icon } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 import "./Galery.css";
 
 export class Galery extends Component {
   render() {
     return (
-      <div className="cwarta">
+      <div>
+        <NavLink to="/product" className="cwarta top">
+          <Btn className="styleb " icon labelPosition="left">
+            <Icon name="list" />
+            Liste des produits
+          </Btn>
+        </NavLink>
         <div className="top">
           {this.props.getUsersList.map((el) => {
             return (
               <div className="carte" key={el.id}>
+                <a href={"http://localhost:3001/" + el.photo} target="_blank">
+                  <img
+                    className="photo"
+                    src={"http://localhost:3001/" + el.photo}
+                    alt="Mon Produit"
+                  />
+                </a>
                 <h2>{el.name}</h2>
-                <img
-                  className="photo"
-                  src={"http://localhost:3001/" + el.photo}
-                  alt="Mon Produit"
-                />
+
                 <p>
-                  {el.createur}-{el.saison}-{el.annee}
+                  createur : {el.createur}- saison : {el.saison}
                 </p>
                 <p>
-                  {el.gamme}-{el.modele}
+                  gamme : {el.gamme}- modele: {el.modele}
                 </p>
                 <p>
-                  {el.sex}-{el.mesure}-{el.qte}
+                  sex : {el.sex}- mesure : {el.mesure}
                 </p>
+                <p>quantité : {el.qte}</p>
                 <p>{el.annee}</p>
               </div>
             );

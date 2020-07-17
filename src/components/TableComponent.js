@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import { Link , NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import {
@@ -47,7 +47,6 @@ const TableComponent = (props) => {
   };
 
   const columns = [
-    
     {
       dataField: "annee",
       text: "Année",
@@ -113,12 +112,21 @@ const TableComponent = (props) => {
       },
     },
     {
+      dataField: "qte",
+      text: "Quantité",
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
+    },
+    
+    {
       dataField: "link",
       text: "Action",
       headerStyle: () => {
-        return { width: "40%" ,textAlign: "center"};
+        return { width: "40%", textAlign: "center" };
       },
-      /*-btn:details-edit-delete---------------------------------------------------------*/
+      /*-btn:details-edit----------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
@@ -134,13 +142,13 @@ const TableComponent = (props) => {
               </button>
             </Link>
 
-            <button
+            {/* <button
               color="dark"
               className="mr-2 styleb ui button"
               onClick={() => handleClick(props.dispatch, row)}
             >
               <FontAwesomeIcon icon={faTrash} /> Supprimer
-            </button>
+            </button> */}
           </div>
         );
       },
@@ -169,7 +177,12 @@ const TableComponent = (props) => {
                     </Btn>
                   </Link>
                 </Col>
-                  <NavLink to="/product-galery">galery</NavLink>
+                <NavLink to="/product-galery">
+                  <Btn className="styleb" icon labelPosition="left">
+                    <Icon name="th" />
+                    Galery
+                  </Btn>
+                </NavLink>
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">

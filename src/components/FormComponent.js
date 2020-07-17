@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
       modele: state.users.getUserDetail.modele,
       name: state.users.getUserDetail.name,
       mesure: state.users.getUserDetail.mesure,
+      qte: state.users.getUserDetail.qte,
       photo: state.users.getUserDetail.photo,
       commentaire: state.users.getUserDetail.commentaire,
     },
