@@ -119,12 +119,12 @@ const TableComponent = (props) => {
         return { width: "10%" };
       },
     },
-    
+
     {
       dataField: "link",
       text: "Action",
       headerStyle: () => {
-        return { width: "40%", textAlign: "center" };
+        return { width: "24%", textAlign: "center" };
       },
       /*-btn:details-edit----------------------------------------------------------*/
       formatter: (rowContent, row) => {
@@ -177,12 +177,7 @@ const TableComponent = (props) => {
                     </Btn>
                   </Link>
                 </Col>
-                <NavLink to="/product-galery">
-                  <Btn className="styleb" icon labelPosition="left">
-                    <Icon name="th" />
-                    Galery
-                  </Btn>
-                </NavLink>
+
                 {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">

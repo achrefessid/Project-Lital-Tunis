@@ -10,12 +10,6 @@ export class Galery extends Component {
   render() {
     return (
       <div>
-        <NavLink to="/product" className="cwarta top">
-          <Btn className="styleb " icon labelPosition="left">
-            <Icon name="list" />
-            Liste des produits
-          </Btn>
-        </NavLink>
         <div className="top">
           {this.props.getUsersList.map((el) => {
             return (
@@ -38,10 +32,10 @@ export class Galery extends Component {
                 <p> mesure : {el.mesure}</p>
                 <p>Quantité : {el.qte}</p> */}
                 <Link to={"detail/" + el._id}>
-              <button color="dark" className="mr-2 styleb ui button">
-                <FontAwesomeIcon icon={faInfo} /> Détail
-              </button>
-            </Link>
+                  <button color="dark" className="mr-2 styleb ui button">
+                    <FontAwesomeIcon icon={faInfo} /> Détail
+                  </button>
+                </Link>
               </div>
             );
           })}

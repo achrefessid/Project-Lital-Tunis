@@ -45,6 +45,12 @@ const NavbarComponent = (props) => {
                     </NavItem>
 
                     <NavItem>
+                      <NavLink tag={soltanLink} to="/product-galery">
+                        Galery
+                      </NavLink>
+                    </NavItem>
+
+                    <NavItem>
                       <NavLink tag={soltanLink} to="/product">
                         Produits
                       </NavLink>
