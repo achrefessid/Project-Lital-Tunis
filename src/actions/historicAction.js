@@ -1,6 +1,8 @@
 import * as types from "../types";
 import Axios from "axios";
 
+Axios.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
+
 
 /*---------------------------------------get History--------------------------------------------------- */
 export const getHistory2 = (payload) => {

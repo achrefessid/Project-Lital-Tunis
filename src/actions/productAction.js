@@ -5,6 +5,9 @@ export const GET_USER_DETAIL = "GET_USER_DETAIL";
 export const POST_USER_CREATE = "POST_USER_CREATE";
 export const PUT_USER_EDIT = "PUT_USER_EDIT";
 
+
+axios.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
+
 export const getUsersList = () => {
   return (dispatch) => {
     axios

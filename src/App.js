@@ -18,8 +18,11 @@ import SignUp from "./components/SignUp/SignUp";
 import SingIn from "./components/ManagingUser/addUser";
 import Dex from "./components/déconnection";
 import { connect } from "react-redux";
+import { get_current_user } from './actions/currentUserAction'
 
 class App extends Component {
+  componentDidMount() { this.props.get_current_user() }
+
   render() {
     return (
       <div>
@@ -67,11 +70,11 @@ class App extends Component {
                 <Redirect to="/" />
               </Switch>
             ) : (
-              <div>euhhh1 !{console.log("user", this.props.user)}</div>
-            )
+                    <div>euhhh1 !{console.log("user", this.props.user)}</div>
+                  )
           ) : (
-            <div>euhhh2 !</div>
-          )}
+              <div>euhhh2 !</div>
+            )}
         </Router>
       </div>
     );
@@ -82,4 +85,4 @@ export default connect((state) => {
   return {
     user: state.currentUser,
   };
-}, null)(App);
+}, { get_current_user })(App);

@@ -5,20 +5,20 @@ import { loginUser } from "../../actions/currentUserAction"
 import './SignUp.css';
 
 class SignUp extends Component {
-  verif() {
-    const x = this.props.users.filter((el) => ((el.userName === this.state.userName) && (el.passWord === this.state.passWord)));
+  // verif() {
+  //   const x = this.props.users.filter((el) => ((el.userName === this.state.userName) && (el.passWord === this.state.passWord)));
 
-    if (x.length === 0) { alert("Données invalides") }
-    else {
-      this.props.loginUser(x[0])
-    }
-  }
+  //   if (x.length === 0) { alert("Données invalides") }
+  //   else {
+  //     this.props.loginUser(x[0])
+  //   }
+  // }
   //{window.location.pathname = "/home";}
 
-  componentDidMount() {
-    this.props.getAlluser();
+  // componentDidMount() {
+  //   this.props.getAlluser();
 
-  }
+  // }
 
   render() {
     return (
@@ -37,7 +37,7 @@ class SignUp extends Component {
               <span>Mot de passe</span>
               <input type="password" placeholder="Entrer le mot de passe"
                 onChange={(e) => this.setState({ passWord: e.target.value })} />
-              <button onClick={() => this.verif()}> Se connecter</button>
+              <button onClick={() => this.props.loginUser({ userName: this.state.userName, passWord: this.state.passWord })}> Se connecter</button>
             </div>
           </div>
         </div>
@@ -47,12 +47,12 @@ class SignUp extends Component {
 }
 
 
-export default connect(  (state => {
+export default connect((state => {
   return {
     users: state.userReducer
   }
 }),
- {
-  getAlluser : getUsersFromApi,
-  loginUser
-})(SignUp);
+  {
+    getAlluser: getUsersFromApi,
+    loginUser
+  })(SignUp);

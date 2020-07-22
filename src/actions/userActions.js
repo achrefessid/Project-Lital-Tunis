@@ -1,6 +1,9 @@
 import { ADD_USER, GET_USER, EDIT_USER, DELETE_USER } from "./types";
 import Axios from "axios";
 
+
+Axios.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
+
 /* add  user */
 
 export const addUser = (payload) => ({
