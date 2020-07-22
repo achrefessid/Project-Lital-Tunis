@@ -4,15 +4,12 @@ import BackComponent from "../components/BackComponent";
 import { connect } from "react-redux";
 import FormComponent from "../components/FormComponent";
 import swal from "sweetalert";
-import { deleteUser,  postUserCreate,getUserDetail, putUserUpdate} from "../actions/productAction";
-
-
-const mapStateToProps = (state) => {
-  return {
-    getResponDataUser: state.users.getResponDataUser,
-    errorResponDataUser: state.users.errorResponDataUser,
-  };
-};
+import {
+  deleteUser,
+  postUserCreate,
+  getUserDetail,
+  putUserUpdate,
+} from "../actions/productAction";
 
 class EditUserContainer extends Component {
   componentDidMount() {
@@ -20,22 +17,26 @@ class EditUserContainer extends Component {
   }
 
   handleSubmit(data) {
-
-    this.props.putUserUpdate(data, this.props.match.params.id);
-    console.log("data",data,"id", this.props.match.params.id);
+    this.props.putUserUpdate(
+      data,
+      this.props.match.params.id,
+      this.props.currentUser
+    );
+    console.log("data", data, "id", this.props.match.params.id);
+    console.log("currentUser", this.props.currentUser);
   }
 
   render() {
     if (this.props.getResponDataUser || this.props.errorResponDataUser) {
       if (this.props.errorResponDataUser) {
-        swal("Failed!", this.props.errorResponDataUser, "error");
+        swal("Echec!", this.props.errorResponDataUser, "error");
       } else {
         swal(
-          "User Updated!",
-          "Année : " +
-            this.props.getResponDataUser.annee +
-            " , Saisson : " +
-            this.props.getResponDataUser.saison,
+          "Produit à jour!","",
+          // "Année : " +
+          //   this.props.getResponDataUser.annee +
+          //   " , Saisson : " +
+          //   this.props.getResponDataUser.saison,
           "success"
         );
       }
@@ -44,15 +45,26 @@ class EditUserContainer extends Component {
       <Container>
         <BackComponent />
         <h1>Modifier le produit</h1>
-        <FormComponent onSubmit={(data) => this.handleSubmit(data)} />
+        <FormComponent
+          className="styleb"
+          onSubmit={(data) => this.handleSubmit(data)}
+        />
       </Container>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    getResponDataUser: state.users.getResponDataUser,
+    errorResponDataUser: state.users.errorResponDataUser,
+  };
+};
+
 export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
   deleteUser,
-  getUserDetail
+  getUserDetail,
 })(EditUserContainer);

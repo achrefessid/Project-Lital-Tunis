@@ -3,8 +3,10 @@ import { ADD_USER, GET_USER, EDIT_USER, DELETE_USER } from "../actions/types";
 const initialState = [];
 
 export default function userReducer(state = initialState, action) {
-  if (action.type === ADD_USER)
-    return { ...state, users: { ...action.payload, ...state.users } };
+  if (action.type === ADD_USER) {
+    let user = action.payload;
+    return [user, ...state];
+  }
   if (action.type === GET_USER) {
     return action.payload;
   }

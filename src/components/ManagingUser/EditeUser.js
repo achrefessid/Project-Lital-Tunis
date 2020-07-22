@@ -2,25 +2,27 @@ import { connect } from "react-redux";
 import { editeUserFromApi } from "../../actions/userActions";
 import React, { useState } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const ModalEdite = (props) => {
-  const { buttonLabel, className } = props;
+  const { className } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [passWord, setUserPass] = useState();
-  const [userName, setUserName] = useState();
-  const [userMail, setUserMail] = useState();
-  const [userPhone, setUserPhone] = useState();
-  const [userPost, setUserPost] = useState();
+  const [firstName, setFirstName] = useState(props.el.firstName);
+  const [lastName, setLastName] = useState(props.el.lastName);
+  const [passWord, setUserPass] = useState(props.el.passWord);
+  const [userName, setUserName] = useState(props.el.userName);
+  const [userMail, setUserMail] = useState(props.el.userMail);
+  const [userPhone, setUserPhone] = useState(props.el.userPhone);
+  const [userPost, setUserPost] = useState(props.el.userPost);
 
   const send = () => {
     let obj = {
-      id: props.el.id,
+      _id: props.el._id,
       firstName: firstName,
       lastName: lastName,
       passWord: passWord,
@@ -32,7 +34,7 @@ const ModalEdite = (props) => {
 
     props.edite(obj);
     console.log(obj);
-    // toggle();
+    toggle();
   };
 
   const externalCloseBtn = (
@@ -46,9 +48,10 @@ const ModalEdite = (props) => {
   );
   return (
     <div>
-      <Button onClick={toggle}>
-        {buttonLabel} Editer
-      </Button>
+      <button onClick={toggle} className="ui button mr-2">
+        <FontAwesomeIcon icon={faEdit} /> Editer
+      </button>
+
       <Modal
         isOpen={modal}
         toggle={toggle}

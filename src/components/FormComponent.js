@@ -36,22 +36,30 @@ const renderField = ({
 
 const mapStateToProps = (state) => {
   return {
-    initialValues : {
-      annee : state.users.getUserDetail.annee,
-      saison : state.users.getUserDetail.saison,
-      createur : state.users.getUserDetail.createur,
-      gamme : state.users.getUserDetail.gamme,
-      sex : state.users.getUserDetail.sex,
-      modele : state.users.getUserDetail.modele,
-      name : state.users.getUserDetail.name,
-      mesure : state.users.getUserDetail.mesure,
-      photo : state.users.getUserDetail.photo,
-      commentaire : state.users.getUserDetail.commentaire,
-    }
+    initialValues: {
+      annee: state.users.getUserDetail.annee,
+      saison: state.users.getUserDetail.saison,
+      createur: state.users.getUserDetail.createur,
+      gamme: state.users.getUserDetail.gamme,
+      sex: state.users.getUserDetail.sex,
+      modele: state.users.getUserDetail.modele,
+      name: state.users.getUserDetail.name,
+      mesure: state.users.getUserDetail.mesure,
+      qte: state.users.getUserDetail.qte,
+      photo: state.users.getUserDetail.photo,
+      commentaire: state.users.getUserDetail.commentaire,
+    },
   };
 };
 
 class FormComponent extends Component {
+  customFileInput = (field) => {
+    delete field.input.value; // <-- just delete the value property
+    return <input type="file" id="file" {...field.input} />;
+  };
+  state = {
+    myimage: null,
+  };
 
   render() {
     return (
@@ -132,9 +140,9 @@ class FormComponent extends Component {
                 label="Name :"
               />
             </FormGroup>
-            </Col>
+          </Col>
 
-            <Col md={6}>
+          <Col md={6}>
             <FormGroup>
               <Field
                 type="text"
@@ -145,12 +153,23 @@ class FormComponent extends Component {
             </FormGroup>
           </Col>
 
-            <Col md={6}>
+          <Col md={6}>
             <FormGroup>
               <Field
-                type="text"
-                name="photo"
+                min = "0"
+                type="number"
+                name="qte"
                 component={renderField}
+                label="Quantity :"
+              />
+            </FormGroup>
+          </Col>
+          <Col md={6}>
+            <FormGroup>
+              <Field
+                type="file"
+                name="photo"
+                component={this.customFileInput}
                 label="Photo :"
               />
             </FormGroup>
@@ -159,25 +178,25 @@ class FormComponent extends Component {
           <Col md={6}>
             <FormGroup>
               <Field
-                type="text"
+                type="textarea"
                 name="commentaire"
                 component={renderField}
                 label="Commentaire :"
               />
             </FormGroup>
           </Col>
-        
         </FormGroup>
 
         <FormGroup row>
           <Col md="12">
             <FormGroup>
               <Button
+                className="styleb"
                 color="dark"
                 type="submit"
                 disabled={this.props.submitting}
               >
-                Submit
+                Valider
               </Button>
             </FormGroup>
           </Col>

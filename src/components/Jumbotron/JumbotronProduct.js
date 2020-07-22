@@ -1,15 +1,9 @@
 //container ili ta7it navbar
 import React from "react";
-import { Jumbotron, Button, Container } from "reactstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //mta3 font awesome
-import { faInfo } from '@fortawesome/free-solid-svg-icons'//mta3 font awesome
+import { Jumbotron, Container } from "reactstrap";
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
-  return {
-    title: state.users.title
-  }
-}
+
 
 const JumbotronComponent = (props) => {
   return (
@@ -21,16 +15,21 @@ const JumbotronComponent = (props) => {
           <hr className="my-2" />
 
           <p>
-            Cette page permet à l'utilisateur de chercher un produit selon plusieurs critéres et modifier / supprimer un produit.
+            Cette page permet à l'utilisateur de chercher un produit selon plusieurs critéres et de faire des modifications ou suppressions sur les produits.
           </p>
 
           <p className="lead">
-          <Button color="dark"><FontAwesomeIcon icon={faInfo}/> Learn More</Button>
           </p>
         </Container>
       </Jumbotron>
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    title: state.users.title
+  }
+}
 
 export default connect(mapStateToProps, null)(JumbotronComponent);

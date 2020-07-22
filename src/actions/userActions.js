@@ -12,7 +12,7 @@ export function postUser(el) {
   console.log("add user");
 
   return (dispatch) =>
-    Axios.post(`http://localhost:3001/user`, {
+    Axios.post(`http://localhost:3001/users`, {
       id: el.id,
       userName: el.userName,
       userMail: el.userMail,
@@ -35,9 +35,9 @@ export const getAllUsers = (payload) => ({
 
 export function getUsersFromApi() {
   return (dispatch) =>
-    Axios.get("http://localhost:3001/user").then((res) =>
-      dispatch(getAllUsers(res.data))
-    );
+    Axios.get("http://localhost:3001/users").then((res) => {
+      dispatch(getAllUsers(res.data));
+    });
 }
 
 /* delete user */
@@ -49,8 +49,8 @@ export const deleteUser = (payload) => ({
 
 export function deleteUsersFromApi(id) {
   return (dispatch) =>
-    Axios.delete("http://localhost:3001/user/" + id).then((res) =>
-      dispatch(deleteUser(id))
+    Axios.delete("http://localhost:3001/users/" + id).then((res) =>
+      dispatch(getUsersFromApi())
     );
 }
 
@@ -62,10 +62,9 @@ export const editeUser = (payload) => ({
 });
 
 export function editeUserFromApi(el) {
-  console.log(el);
+  console.log("user edited", el);
   return (dispatch) =>
-    Axios.patch("http://localhost:3001/user/" + el.id, el).then(
-      (res) => dispatch(editeUser(el)),
-      window.location.reload()
+    Axios.put("http://localhost:3001/users/" + el._id, el).then((res) =>
+      dispatch(getUsersFromApi())
     );
 }

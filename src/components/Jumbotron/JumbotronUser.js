@@ -5,11 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //mta3 font awe
 import { faInfo } from '@fortawesome/free-solid-svg-icons'//mta3 font awesome
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.users.user
-  }
-}
+
 
 const JumbotronComponent = (props) => {
   return (
@@ -21,16 +17,21 @@ const JumbotronComponent = (props) => {
           <hr className="my-2" />
 
           <p>
-            .
+            Cette page permet à l'administrateur d'ajouter un utilisateur, de modifier ses informations ou de le supprimer.
           </p>
 
           <p className="lead">
-          <Button color="dark"><FontAwesomeIcon icon={faInfo}/> Learn More</Button>
           </p>
         </Container>
       </Jumbotron>
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.users.user
+  }
+}
 
 export default connect(mapStateToProps, null)(JumbotronComponent);

@@ -1,133 +1,173 @@
+import { Button as Btn, Icon } from "semantic-ui-react";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
-import { Container, Button, Row, Col, Spinner } from "reactstrap";
+import { Container, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfo, faEdit, faTrash, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";  //serach
-import paginationFactory from "react-bootstrap-table2-paginator";          //mta3 tabdil page 123
-import { Link } from "react-router-dom";
+import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import ToolkitProvider, { Search, CSVExport } from "react-bootstrap-table2-toolkit";
+import paginationFactory from "react-bootstrap-table2-paginator";
+import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import swal from 'sweetalert';
-import { deleteUser,  postUserCreate, putUserUpdate} from "../actions/productAction";
+import swal from "sweetalert";
+import {
+  deleteUser,
+  postUserCreate,
+  putUserUpdate,
+} from "../actions/productAction";
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 
-/*-mta3 search */
+const { ExportCSVButton } = CSVExport;
+
+/*------------*/
 const { SearchBar } = Search;
 
-
-
-/*-il id wil action walafihom i5tot, ki tinzil a3lihom ama ya3tik mi lowil li li5ér 
-wala mi li5ér li lowél------------------------------------------------------------*/
-const defaultSorted = [         
+/*---------------------------------*/
+const defaultSorted = [
   {
     dataField: "id",
     order: "asc",
   },
 ];
-/*--------------------------------------------------------------------------------*/
-const mapStateToProps = (state) => {
-  return {
-    getUsersList: state.users.getUsersList,
-    errorUsersList: state.users.errorUsersList,
-  };
-};
+
 /*-Tableau------------------------------------------------------------------------*/
 const TableComponent = (props) => {
-
-const handleClick = (dispatch, row) => {
-  
-  swal({
-    title: "Are you sure you want to delete this data ?",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      props.deleteUser(row)
-      swal("User Data Successfully deleted", {
-        icon: "success",
-      });
-    } else {
-      swal("Data failed to delete");
-    }
-  });
-}
-
-
+  const handleClick = (dispatch, row) => {
+    swal({
+      title: "Voulez-vous vraiment supprimer ces données?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        props.deleteUser(row, props.currentUser);
+        swal("Données du produit supprimées avec succès", {
+          icon: "success",
+        });
+      } else {
+        swal("Impossible de supprimer les données");
+      }
+    });
+  };
 
   const columns = [
     {
-      dataField: "id",
-      text: "ID",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér       
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
-    {
       dataField: "annee",
       text: "Année",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér            
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "saison",
       text: "Saison",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "createur",
       text: "Createur",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "gamme",
       text: "Gamme",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "sex",
       text: "Sex",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "modele",
       text: "Modéle",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
     {
       dataField: "name",
       text: "Name",
-      sort: true,              //tab3in ili irodo il haja mi lowil ou mili5ér   
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
     },
+    {
+      dataField: "mesure",
+      text: "Mesure",
+      filter: textFilter(),
+      sort: true,
+      headerStyle: () => {
+        return { width: "10%" };
+      },
+    },
+    {
+      dataField: "qte",
+      text: "Quantité",
+      sort: true,
+      filter: textFilter(),
+      headerStyle: () => {
+        return { width: "10%" };
+      },
+    },
+
     {
       dataField: "link",
       text: "Action",
-/*-btn:details-edit-delete---------------------------------------------------------*/
+      headerStyle: () => {
+        return { width: "24%", textAlign: "center" };
+      },
+      /*-btn:details-edit----------------------------------------------------------*/
       formatter: (rowContent, row) => {
         return (
           <div>
-            <Link to={"detail/" + row.id}>
-              <Button color="red" className="mr-2">
+            <Link to={"detail/" + row._id}>
+              <button color="dark" className="mr-2 styleb ui button">
                 <FontAwesomeIcon icon={faInfo} /> Détail
-              </Button>
+              </button>
             </Link>
-  
-            <Link to={"edit/" + row.id}>
-              <Button color="dark" className="mr-2"> 
+
+            <Link to={"edit/" + row._id}>
+              <button color="dark" className="mr-2 styleb ui button">
                 <FontAwesomeIcon icon={faEdit} /> Editer
-              </Button>
+              </button>
             </Link>
-  
-            <Button color="red" className="mr-2" 
-            onClick={() => handleClick(props.dispatch, row)}>
-              <FontAwesomeIcon icon={faTrash} /> delete
-            </Button>
+
+            {/* <button
+              color="dark"
+              className="mr-2 styleb ui button"
+              onClick={() => handleClick(props.dispatch, row)}
+            >
+              <FontAwesomeIcon icon={faTrash} /> Supprimer
+            </button> */}
           </div>
         );
       },
     },
   ];
 
+  
   return (
     <Container>
       {props.getUsersList ? (
@@ -138,37 +178,48 @@ const handleClick = (dispatch, row) => {
           columns={columns}
           defaultSorted={defaultSorted}
           search
-        >
-      
+          exportCSV
+          >
           {(props) => (
-            <div>
 
+            <div>
               <Row>
                 <Col>
                   <Link to="/create">
-                    <Button color="dark" className="mr-2">
-                      <FontAwesomeIcon icon={faUserPlus} /> Ajouter un produit
-                    </Button>
+                    <Btn className="styleb" icon labelPosition="left">
+                      <Icon name="add product" />
+                      Ajouter un produit
+                    </Btn>
                   </Link>
                 </Col>
-                
-              {/*-search-------------------*/}
+                <button><ExportCSVButton { ...props.csvProps }>Enregistrez</ExportCSVButton></button>
+
+
+                {/*-search-------------------*/}
                 <Col>
                   <div className="float-right">
-                    <SearchBar {...props.searchProps} placeholder="Search .." />
+                    <SearchBar
+                      className="styleb"
+                      {...props.searchProps}
+                      placeholder="Recherche avancée .."
+                    />
                   </div>
                 </Col>
               </Row>
+
+              
               <BootstrapTable
                 {...props.baseProps}
-                pagination={paginationFactory()} //mta3 123 ili tbadil
+                pagination={paginationFactory()}
+                filter={ filterFactory() }
               />
+ 
+
             </div>
           )}
-          </ToolkitProvider>
-          /*-search---------------------- */
-
-                ) : (
+        </ToolkitProvider>
+      ) : (
+        /*-search---------------------- */
         <div className="text-center">
           {props.errorUsersList ? (
             <h4>{props.errorUsersList}</h4>
@@ -181,8 +232,19 @@ const handleClick = (dispatch, row) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    getUsersList: state.users.getUsersList,
+    errorUsersList: state.users.errorUsersList,
+  };
+};
+
 export default connect(mapStateToProps, {
   postUserCreate,
   putUserUpdate,
-  deleteUser
+  deleteUser,
 })(TableComponent);
+
+
+//défili

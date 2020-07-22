@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postUser } from "../../actions/userActions";
+import { Link } from "react-router-dom";
 import "./managingUser.css";
 
 const SingIn = ({ addPerson }) => {
@@ -16,68 +17,69 @@ const SingIn = ({ addPerson }) => {
     <div className="Sin">
       <div className="Siin">
         <h1>Ajouter un utilisateur</h1>
-        <form>
-          <span>Prénom</span>
-          <input
-            type="text"
-            placeholder="Entrer le prénom d'utilisateur"
-            required
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <span>Nom</span>
-          <input
-            type="text"
-            placeholder="Entrer le prénom d'utilisateur"
-            required
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <span>Mot de passe</span>
-          <input
-            type="password"
-            placeholder="Entrer le mot de passe"
-            minLength="8"
-            required
-            value={passWord}
-            onChange={(e) => setUserPass(e.target.value)}
-          />
-          <span>Pseudo</span>
-          <input
-            type="text"
-            placeholder="Entrer le pseudo d'utilisateur"
-            required
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-          <span>Mail</span>
-          <input
-            type="text"
-            placeholder="Entrer le mail "
-            required
-            value={userMail}
-            onChange={(e) => setUserMail(e.target.value)}
-          />
-          <span>Numéro de téléphone</span>
-          <input
-            type="phone"
-            placeholder="Entrer le numero de téléphone"
-            minLength="8"
-            required
-            value={userPhone}
-            onChange={(e) => setUserPhone(e.target.value)}
-          />
-          <span>Type d'utilisateur</span>
-          
-          <input
-            type="text"
-            placeholder="Role d'utilisateur"
-            required
-            value={userPost}
-            onChange={(e) => setUserPost("Administrateur")}
-          />
-          
+
+        <span>Prénom</span>
+        <input
+          type="text"
+          placeholder="Entrer le prénom d'utilisateur"
+          required
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <span>Nom</span>
+        <input
+          type="text"
+          placeholder="Entrer le prénom d'utilisateur"
+          required
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <span>Mot de passe</span>
+        <input
+          type="password"
+          placeholder="Entrer le mot de passe"
+          minLength="8"
+          required
+          value={passWord}
+          onChange={(e) => setUserPass(e.target.value)}
+        />
+        <span>username</span>
+        <input
+          type="text"
+          placeholder="Entrer le username"
+          required
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <span>Mail</span>
+        <input
+          type="text"
+          placeholder="Entrer le mail "
+          required
+          value={userMail}
+          onChange={(e) => setUserMail(e.target.value)}
+        />
+        <span>Numéro de téléphone</span>
+        <input
+          type="phone"
+          placeholder="Entrer le numero de téléphone"
+          minLength="8"
+          required
+          value={userPhone}
+          onChange={(e) => setUserPhone(e.target.value)}
+        />
+        <span>Type d'utilisateur</span>
+
+        <input
+          type="text"
+          placeholder="Role d'utilisateur"
+          required
+          value={userPost}
+          onChange={(e) => setUserPost("Administrateur")}
+        />
+        <Link to="/user">
           <button
+            type="button"
             onClick={() =>
               addPerson({
                 userName: userName,
@@ -92,7 +94,7 @@ const SingIn = ({ addPerson }) => {
           >
             S'inscrire
           </button>
-        </form>
+        </Link>
       </div>
     </div>
   );

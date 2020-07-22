@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { Icon, Label, Menu, Table, Dropdown } from "semantic-ui-react";
-import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import {
+  Button as Btn,
+  Icon,
+  Label,
+  Table,
+} from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import ModalEdite from "./EditeUser";
 import {
@@ -9,6 +13,8 @@ import {
   deleteUsersFromApi,
   editeUserFromApi,
 } from "../../actions/userActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class VueUser extends Component {
   componentDidMount() {
@@ -17,23 +23,29 @@ class VueUser extends Component {
   render() {
     return (
       <div className="tab">
-        <Link to="/signin">
-        <Dropdown
-          text="Ajouter un utilisateur"
-          icon="add user"
-          floating
-          labeled
-          button
-          className="icon"
-        ></Dropdown>
-        </Link>
+        <NavLink exact to="/signin">
+          <Btn className="styleb" icon labelPosition="left">
+            <Icon name="add user" />
+            Ajouter un utilisateur
+          </Btn>
+        </NavLink>
+        {/* <NavLink exact to="/signin">
+          <Dropdown
+            text="Ajouter un utilisateur"
+            icon="add user"
+            floating
+            labeled
+            button
+            className="icon"
+          ></Dropdown>
+        </NavLink> */}
         <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Pseudo</Table.HeaderCell>
+              <Table.HeaderCell>Mail</Table.HeaderCell>
               <Table.HeaderCell>Mot de passe</Table.HeaderCell>
-              <Table.HeaderCell className="edit">Editer</Table.HeaderCell>
-              <Table.HeaderCell>Supprimer</Table.HeaderCell>
+              <Table.HeaderCell className="edit">Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -43,40 +55,28 @@ class VueUser extends Component {
                   <Label ribbon>{el.userPost}</Label>
                   {el.userName}
                 </Table.Cell>
-                <Table.Cell>{el.passWord}</Table.Cell>
+                <Table.Cell>{el.userMail}</Table.Cell>
                 <Table.Cell>
-                  <ModalEdite el={el} />{" "}
+                  <Table.Cell>{el.passWord}</Table.Cell>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell className="btnsusers">
+                  <ModalEdite el={el} />
                   <button
                     class="ui button"
                     title="Supprimer"
                     onClick={() => {
-                      this.props.delete(el.id);
+                      this.props.delete(el._id);
                     }}
                   >
-                    Supprimer
+                    <FontAwesomeIcon icon={faTrash} />
+                  {"  "}Supprimer
                   </button>
                 </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
 
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron left" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron right" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
+          <Table.Footer></Table.Footer>
         </Table>
       </div>
     );
