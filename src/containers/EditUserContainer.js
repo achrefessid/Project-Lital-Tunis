@@ -22,7 +22,7 @@ class EditUserContainer extends Component {
       this.props.match.params.id,
       this.props.currentUser
     );
-    console.log("data", data, "id", this.props.match.params.id);
+    console.log("data!!!!!", data, "id!!!!!", this.props.match.params.id);
     console.log("currentUser", this.props.currentUser);
   }
 

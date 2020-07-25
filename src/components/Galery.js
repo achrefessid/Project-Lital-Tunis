@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import "./Galery.css";
+import { getUsersList } from "../actions/productAction";
 
 export class Galery extends Component {
+  componentDidMount() { this.props.getUsersList() }
   render() {
     return (
       <div>
         <div className="top">
-          {this.props.getUsersList.map((el) => {
+          {this.props.products_list.map((el) => {
             return (
               <div className="carte" key={el.id}>
                 <a href={"http://localhost:3001/" + el.photo} target="_blank">
@@ -47,7 +49,7 @@ export class Galery extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    getUsersList: state.users.getUsersList,
+    products_list: state.users.getUsersList,
   };
 };
 
@@ -55,4 +57,6 @@ const mapStateToProps = (state) => {
 //     user: () => dispatch(user()),
 //   });
 
-export default connect(mapStateToProps, null)(Galery);
+export default connect(mapStateToProps, {
+  getUsersList
+})(Galery);

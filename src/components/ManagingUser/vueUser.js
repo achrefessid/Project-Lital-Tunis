@@ -17,10 +17,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class VueUser extends Component {
-  componentDidMount() {
-    this.props.getAllUsers();
-  }
+  componentDidMount() { this.props.getUsersFromApi();console.log("salut") }
+  //componentDidMount() { console.log("salut"); }
   render() {
+    { console.log("users list : d", this.props.users) }
     return (
       <div className="tab">
         <NavLink exact to="/signin">
@@ -44,7 +44,7 @@ class VueUser extends Component {
             <Table.Row>
               <Table.HeaderCell>Pseudo</Table.HeaderCell>
               <Table.HeaderCell>Mail</Table.HeaderCell>
-              <Table.HeaderCell>Mot de passe</Table.HeaderCell>
+              <Table.HeaderCell>Tel</Table.HeaderCell>
               <Table.HeaderCell className="edit">Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -57,7 +57,7 @@ class VueUser extends Component {
                 </Table.Cell>
                 <Table.Cell>{el.userMail}</Table.Cell>
                 <Table.Cell>
-                  <Table.Cell>{el.passWord}</Table.Cell>
+                  <Table.Cell>{el.userPhone}</Table.Cell>
                 </Table.Cell>
                 <Table.Cell className="btnsusers">
                   <ModalEdite el={el} />
@@ -69,7 +69,7 @@ class VueUser extends Component {
                     }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
-                  {"  "}Supprimer
+                    {"  "}Supprimer
                   </button>
                 </Table.Cell>
               </Table.Row>
@@ -90,7 +90,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getAllUsers: () => dispatch(getUsersFromApi()),
+  getUsersFromApi: () => dispatch(getUsersFromApi()),
   delete: (id) => dispatch(deleteUsersFromApi(id)),
   edite: (el) => dispatch(editeUserFromApi(el)),
 });

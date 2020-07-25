@@ -6,6 +6,7 @@ import JwtDecode from "jwt-decode";
 /***********************login user action package*********************************** */
 
 export const loginUser2 = (user) => {
+  console.log("user : ",user);
   const action = {
     type: types.LOGIN_USER,
     user,
@@ -28,6 +29,7 @@ export function loginUser(el) {
       .then((res) => {
         const token = res.headers["x-auth-token"];
         localStorage.setItem("token", token);
+        Axios.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
         const payload = JwtDecode(token);
 
         dispatch(loginUser2(payload));
@@ -49,15 +51,14 @@ export const logoutUser = () => {
 
 /***********************get_current_user action package*********************************** */
 
-export  function get_current_user(){
-  return async (dispatch)=>{
-  const token = await localStorage.getItem("token");
-  if (token) 
-  {
-    const payload = await JwtDecode(token);
-    dispatch(loginUser2(payload))
+export function get_current_user() {
+  return async (dispatch) => {
+    const token = await localStorage.getItem("token");
+    if (token) {
+      const payload = await JwtDecode(token);
+      dispatch(loginUser2(payload))
+    }
+
   }
-  
-}
 };
 

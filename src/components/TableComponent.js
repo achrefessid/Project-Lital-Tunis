@@ -167,7 +167,7 @@ const TableComponent = (props) => {
     },
   ];
 
-  
+
   return (
     <Container>
       {props.getUsersList ? (
@@ -179,7 +179,7 @@ const TableComponent = (props) => {
           defaultSorted={defaultSorted}
           search
           exportCSV
-          >
+        >
           {(props) => (
 
             <div>
@@ -192,8 +192,17 @@ const TableComponent = (props) => {
                     </Btn>
                   </Link>
                 </Col>
-                <button><ExportCSVButton { ...props.csvProps }>Enregistrez</ExportCSVButton></button>
-
+                {/* <button><ExportCSVButton { ...props.csvProps }>Enregistrez</ExportCSVButton></button> */}
+                <Col>
+                <Link >
+                  <Btn style={{marginBottom : "10px"}} className="styleb py-2" icon labelPosition="left">
+                    <Icon name="download" />
+                    
+                    <ExportCSVButton {...props.csvProps}> Exporter</ExportCSVButton>
+                  </Btn>
+                  </Link>
+                  </Col>
+                  
 
                 {/*-search-------------------*/}
                 <Col>
@@ -207,27 +216,27 @@ const TableComponent = (props) => {
                 </Col>
               </Row>
 
-              
+
               <BootstrapTable
                 {...props.baseProps}
                 pagination={paginationFactory()}
-                filter={ filterFactory() }
+                filter={filterFactory()}
               />
- 
+
 
             </div>
           )}
         </ToolkitProvider>
       ) : (
-        /*-search---------------------- */
-        <div className="text-center">
-          {props.errorUsersList ? (
-            <h4>{props.errorUsersList}</h4>
-          ) : (
-            <Spinner color="dark" />
-          )}
-        </div>
-      )}
+          /*-search---------------------- */
+          <div className="text-center">
+            {props.errorUsersList ? (
+              <h4>{props.errorUsersList}</h4>
+            ) : (
+                <Spinner color="dark" />
+              )}
+          </div>
+        )}
     </Container>
   );
 };
