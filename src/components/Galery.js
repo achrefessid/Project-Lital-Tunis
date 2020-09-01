@@ -9,11 +9,17 @@ import { getUsersList } from "../actions/productAction";
 
 export class Galery extends Component {
   componentDidMount() { this.props.getUsersList() }
+  state = {
+    searchName: "",
+  };
   render() {
     return (
       <div>
+        <div className="galery-input">
+          <input onChange={e => this.setState({ searchName: e.target.value })} type="text" placeholder="entrer un nom d'un article" />
+        </div>
         <div className="top">
-          {this.props.products_list.map((el) => {
+          {this.props.products_list ? this.props.products_list.filter(e => { let patt = new RegExp(this.state.searchName, 'gi'); return e.name.match(patt) }).map((el) => {
             return (
               <div className="carte" key={el.id}>
                 <a href={"http://localhost:3001/" + el.photo} target="_blank">
@@ -40,7 +46,7 @@ export class Galery extends Component {
                 </Link>
               </div>
             );
-          })}
+          }) : null}
         </div>
       </div>
     );

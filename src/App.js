@@ -37,7 +37,7 @@ class App extends Component {
               </Switch>
             ) : this.props.user.userPost === "Administrateur" ? (
               <Switch>
-                <Route exact path="/" component={UserContainer} />
+                <Route exact path="/" component={GaleryContainer} />
                 <Route exact path="/product" component={ProductContainer} />
                 <Route exact path="/product-galery" component={GaleryContainer} />
                 <Route exact path="/historic" component={HistoricContainer} />
@@ -55,7 +55,7 @@ class App extends Component {
               </Switch>
             ) : this.props.user.userPost === "Opérateur" ? (
               <Switch>
-                <Route exact path="/" component={ProductContainer} />
+                <Route exact path="/" component={GaleryContainer} />
                 <Route exact path="/product" component={ProductContainer} />
                 <Route exact path="/product-galery" component={GaleryContainer} />
                 <Route exact path="/historic" component={HistoricContainer} />

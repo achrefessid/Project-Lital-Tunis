@@ -23,7 +23,7 @@ class DetailUserContainer extends Component {
             onClick={() => window.print()}
           >
             <button className="ui button ">
-              <i className="save icon"></i> Enregistez
+              <i className="save icon"></i> Imprimer
             </button>
           </div>
         </div>
